@@ -118,5 +118,47 @@
       "body": "Napište – připravím bezplatnou nabídku pro vaše podnikání.",
       "cta": "Objednat bezplatnou nabídku"
     }
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontakt – Nexova | Bezplatná nabídka webových stránek",
+      "description": "Napište mi a získejte bezplatnou nabídku webu do 48 hodin."
+    },
+    "hero": {
+      "eyebrow": "Kontakt",
+      "h1": "Začněme společně.",
+      "sub": "Popište svůj projekt a připravím bezplatnou nabídku do 48 hodin."
+    },
+    "form": {
+      "name":       "Jméno a příjmení",
+      "namePh":     "Jan Novák",
+      "email":      "E-mailová adresa",
+      "emailPh":    "jan@firma.cz",
+      "phone":      "Telefon (volitelné)",
+      "phonePh":    "+48 574 022 812",
+      "message":    "Zpráva",
+      "messagePh":  "Popište svůj projekt nebo položte otázku…",
+      "submit":     "Odeslat zprávu",
+      "submitting": "Odesílání…"
+    },
+    "errors": {
+      "nameMin":      "Jméno musí mít alespoň 2 znaky.",
+      "emailInvalid": "Zadejte platnou e-mailovou adresu.",
+      "messageMin":   "Zpráva musí mít alespoň 10 znaků.",
+      "generic":      "Něco se pokazilo. Zkuste to znovu nebo napište přímo na kontakt.nexova.agency@gmail.com."
+    },
+    "success": {
+      "title": "Zpráva odeslána!",
+      "body":  "Odpovím do 48 hodin. Můžete mě také kontaktovat přímo na kontakt.nexova.agency@gmail.com.",
+      "again": "Odeslat další zprávu"
+    },
+    "sidebar": {
+      "email":    "kontakt.nexova.agency@gmail.com",
+      "phone":    "+48 574 022 812",
+      "response": "Odpovídám do 48 hodin.",
+      "trust1":   "Bezplatná nabídka bez závazků",
+      "trust2":   "Bez skrytých nákladů",
+      "trust3":   "Záruka opravy chyb"
+    }
   }
 }

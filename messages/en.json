@@ -117,5 +117,47 @@
       "body": "Get in touch – I'll prepare a free quote for your business.",
       "cta": "Get a Free Quote"
     }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact – Nexova | Free Website Quote",
+      "description": "Get in touch and receive a free website quote within 48 hours."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "h1": "Let's get started.",
+      "sub": "Describe your project and I'll prepare a free quote within 48 hours."
+    },
+    "form": {
+      "name":       "Full name",
+      "namePh":     "John Smith",
+      "email":      "Email address",
+      "emailPh":    "john@company.com",
+      "phone":      "Phone (optional)",
+      "phonePh":    "+48 574 022 812",
+      "message":    "Message",
+      "messagePh":  "Describe your project or ask a question…",
+      "submit":     "Send message",
+      "submitting": "Sending…"
+    },
+    "errors": {
+      "nameMin":      "Name must be at least 2 characters.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageMin":   "Message must be at least 10 characters.",
+      "generic":      "Something went wrong. Please try again or email us directly at kontakt.nexova.agency@gmail.com."
+    },
+    "success": {
+      "title": "Message sent!",
+      "body":  "I'll reply within 48 hours. You can also reach me directly at kontakt.nexova.agency@gmail.com.",
+      "again": "Send another message"
+    },
+    "sidebar": {
+      "email":    "kontakt.nexova.agency@gmail.com",
+      "phone":    "+48 574 022 812",
+      "response": "I respond within 48 hours.",
+      "trust1":   "Free quote, no commitment",
+      "trust2":   "No hidden costs",
+      "trust3":   "Bug-fix guarantee"
+    }
   }
 }

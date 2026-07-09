@@ -60,18 +60,18 @@ export default function Footer({ locale: _locale }: FooterProps) {
             <ul className="flex flex-col gap-2">
               <li>
                 <a
-                  href="mailto:kontakt@nexova.pl"
+                  href="mailto:kontakt.nexova.agency@gmail.com"
                   className="text-label text-text-muted hover:text-ink transition-colors duration-200"
                 >
-                  kontakt@nexova.pl
+                  kontakt.nexova.agency@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+48000000000"
+                  href="tel:+48574022812"
                   className="text-label text-text-muted hover:text-ink transition-colors duration-200"
                 >
-                  +48 000 000 000
+                  +48 574 022 812
                 </a>
               </li>
             </ul>
