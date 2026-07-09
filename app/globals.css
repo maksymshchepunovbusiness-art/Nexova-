@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — matches .dark element itself AND all descendants */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand colors */
+  --color-indigo:        #4338CA;
+  --color-indigo-deep:   #312E81;
+  --color-indigo-tint:   #EEF2FF;
+  --color-terracotta:    #EA580C;
+  --color-amber:         #F59E0B;
+
+  /* Neutrals */
+  --color-ink:           #1C1B29;
+  --color-text-muted:    #55555F;
+  --color-surface:       #FFFFFF;
+  --color-surface-2:     #F7F7FA;
+  --color-border:        #E6E6EC;
+  --color-success:       #16A34A;
+
+  /* Fonts */
+  --font-sans:   var(--font-inter);
+  --font-serif:  var(--font-cormorant);
+
+  /* Border radius */
+  --radius-card:    14px;
+  --radius-control: 8px;
+
+  /* Shadows — soft, earned */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.06), 0 32px 80px rgba(0,0,0,0.10);
+}
+
+/* Dark mode — CSS variable overrides + explicit selectors for guaranteed coverage */
+.dark,
+html.dark {
+  --color-surface:    #0D0D1A;
+  --color-surface-2:  #14142A;
+  --color-ink:        #EEEEF5;
+  --color-text-muted: #8888A0;
+  --color-border:     #2A2A45;
+  color-scheme: dark;
+}
+
+/* Belt-and-suspenders: explicit rules so backgrounds ALWAYS change in dark mode */
+html.dark body {
+  background-color: #0D0D1A;
+  color: #EEEEF5;
+}
+
+/* ─── SINGLE PAGE BACKGROUND SURFACE ────────────────────────────────────────
+   The fixed `.page-glow` div (z-index:-1) is the ONLY background layer in
+   both light and dark mode. Every section/footer must be transparent so the
+   single fixed layer shows through the whole page uninterrupted.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Light mode: ambient indigo halo behind the whole page.
+   LightPillar (multiply-blended WebGL) provides the vivid beam in the hero;
+   page-glow provides the wider ambient that persists while scrolling. */
+.page-glow {
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 0%,  rgba(67, 56, 202, 0.18) 0%, rgba(67, 56, 202, 0) 100%),
+    radial-gradient(ellipse 55% 28% at 10% 42%, rgba(99, 102, 241, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 28% at 90% 58%, rgba(99, 102, 241, 0.06) 0%, transparent 65%);
+}
+
+/* Dark mode: single wide indigo radial on the #0D0D1A body background.
+   600% wide ellipse → radius 300vw, viewport edge at 16.7% → ~10% vs 12%
+   at centre (imperceptible vignette). Same-hue transparent end avoids the
+   rgba(0,0,0,0) premultiplied-alpha darkening artefact. */
+html.dark .page-glow {
+  background: radial-gradient(
+    ellipse 600% 60% at 50% 0%,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(99, 102, 241, 0) 100%
+  );
+}
+
+/* Every <section> is transparent in BOTH themes —
+   the body + page-glow show through with no per-section repaints. */
+section {
+  background: transparent !important;
+}
+
+/* Footer: transparent in both themes */
+footer {
+  background: transparent !important;
+}
+
+/* Footer top border and header bottom border: visible in light mode
+   as a hairline, removed in dark mode */
+html.dark footer { border-color: transparent !important; }
+html.dark header { border-color: transparent !important; }
+
+/* .dark-hide — elements that must be hidden in BOTH themes:
+   · gradient-fade divs that blended purple sections into white neighbours
+     (sections are now transparent so the fades serve no purpose and would
+     show as white-to-transparent bands on a light page)
+   · blur-2xl decorative blobs whose parent has overflow-hidden — the clip
+     at the section boundary creates rectangular corner artefacts in any theme */
+.dark-hide {
+  display: none !important;
+}
+
+/* Elements whose fill only works on light backgrounds
+   (e.g. bg-indigo-tint = #EEF2FF is too bright on #0D0D1A dark background) */
+html.dark .dark-bg-none {
+  background: transparent !important;
+}
+
+/* ── Dark-mode variant safety ─────────────────────────────────────────────────
+   Tailwind v4 places utilities in @layer utilities. This file is unlayered,
+   so these rules always beat any Tailwind utility regardless of output order.
+   Covers every dark: class actively used in formerly-purple sections. */
+html.dark .dark\:text-white           { color: #ffffff !important; }
+html.dark .dark\:text-white\/70       { color: rgba(255,255,255,.70) !important; }
+html.dark .dark\:text-white\/75       { color: rgba(255,255,255,.75) !important; }
+html.dark .dark\:text-white\/80       { color: rgba(255,255,255,.80) !important; }
+html.dark .dark\:stroke-white         { stroke: #ffffff !important; }
+html.dark .dark\:bg-white             { background-color: #ffffff !important; }
+html.dark .dark\:bg-white\/10         { background-color: rgba(255,255,255,.10) !important; }
+html.dark .dark\:text-indigo          { color: var(--color-indigo) !important; }
+html.dark .dark\:text-indigo-tint\/60 { color: rgba(238,242,255,.60) !important; }
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-indigo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Typography scale */
+.text-display {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.text-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* NX Monogram */
+.nx-monogram {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Scroll-reveal animation */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}

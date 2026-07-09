@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Nexova – Profesjonalne strony internetowe dla firm | Polska i Czechy",
+    "description": "Tworzę profesjonalne strony internetowe dla małych firm w Polsce i Czechach. Jakość agencji, cena jednej osoby. Bezpłatna wycena."
+  },
+  "nav": {
+    "services": "Usługi",
+    "process": "Jak pracuję",
+    "portfolio": "Realizacje",
+    "about": "O nas",
+    "contact": "Kontakt"
+  },
+  "cta": {
+    "quote": "Zamów bezpłatną wycenę",
+    "pricing": "Zobacz pakiety i ceny"
+  },
+  "footer": {
+    "tagline": "Strony internetowe dla lokalnych firm w Polsce i Czechach.",
+    "menu": "Menu",
+    "contact": "Kontakt",
+    "language": "Język",
+    "privacy": "Polityka prywatności"
+  },
+  "home": {
+    "hero": {
+      "h1": "Jakość agencji. Szybkość i cena jednej osoby.",
+      "sub": "Profesjonalna strona dla Twojego biznesu: szybko, uczciwie i bez agencyjnych cenników. Rozmawiasz bezpośrednio z osobą, która ją tworzy.",
+      "ctaPrimary": "Zamów bezpłatną wycenę",
+      "ctaSecondary": "Zobacz pakiety i ceny"
+    },
+    "trust": {
+      "item1": "Gwarancja naprawy błędów",
+      "item2": "Bezpośredni kontakt z wykonawcą",
+      "item3": "Bez ukrytych kosztów",
+      "item4": "Strony dla firm w Polsce i Czechach"
+    },
+    "problem": {
+      "h2": "Twoi klienci najpierw sprawdzają Cię w internecie.",
+      "body": "Słaba strona, albo jej zupełny brak, to klienci trafiający do konkurencji. Wybór bywa trudny: tani freelancer, który znika, albo agencja, która każe płacić jak za korporację. Nexova to trzecia droga."
+    },
+    "comparison": {
+      "h2": "Dlaczego Nexova, a nie tańszy albo droższy wybór",
+      "col": {
+        "concern": "Co Cię martwi",
+        "freelancer": "Tani freelancer",
+        "nexova": "Nexova",
+        "agency": "Duża agencja"
+      },
+      "rows": {
+        "budget": {
+          "concern": "\"Czy zmieszczę się w budżecie?\"",
+          "freelancer": "Tanio, ale często wszystko od nowa",
+          "nexova": "Uczciwa, stała cena, bez ukrytych dopłat",
+          "agency": "Drogo: płacisz za biuro i menedżerów"
+        },
+        "timeline": {
+          "concern": "\"Kiedy dostanę stronę?\"",
+          "freelancer": "Terminy płyną, jak się uda",
+          "nexova": "Tygodnie, nie miesiące",
+          "agency": "Miesiące uzgodnień"
+        },
+        "ghosting": {
+          "concern": "\"A jeśli zniknie po zapłacie?\"",
+          "freelancer": "Zdarza się, i to często",
+          "nexova": "Jestem w kontakcie także po starcie",
+          "agency": "Nie zniknie, ale każdy krok to nowy rachunek"
+        },
+        "contact": {
+          "concern": "\"Z kim będę rozmawiać?\"",
+          "freelancer": "Z jedną osobą, ale zawodną",
+          "nexova": "Bezpośrednio z osobą, która tworzy Twoją stronę",
+          "agency": "Z menedżerem, nie z wykonawcą"
+        },
+        "bugs": {
+          "concern": "\"Co, jeśli coś się zepsuje?\"",
+          "freelancer": "To już Twój problem",
+          "nexova": "Gwarancja: znajdziemy błąd i naprawimy go za darmo",
+          "agency": "Naprawią, ale doliczą do rachunku"
+        },
+        "understanding": {
+          "concern": "\"Czy zrozumieją mój biznes?\"",
+          "freelancer": "Jeden szablon dla wszystkich",
+          "nexova": "Osobiście wnikam w Twoją branżę",
+          "agency": "Jesteś jednym z wielu projektów"
+        }
+      }
+    },
+    "services": {
+      "h2": "Proste pakiety, jasne ceny.",
+      "oneTime": "Realizacja strony · jednorazowo",
+      "packages": {
+        "start": {
+          "name": "Start",
+          "subtitle": "landing / jedna strona",
+          "desc": "Jedna strona, która buduje zaufanie i zbiera kontakty. Idealna na początek.",
+          "price": "od 1 500 zł"
+        },
+        "business": {
+          "name": "Business",
+          "subtitle": "strona wielostronicowa",
+          "desc": "Pełna strona firmowa: treści i SEO, zbudowana pod pozyskiwanie klientów.",
+          "price": "od 3 500 zł"
+        },
+        "shop": {
+          "name": "Sklep",
+          "subtitle": "sklep internetowy",
+          "desc": "Sprzedawaj online: katalog, koszyk, płatności.",
+          "price": "od 7 000 zł"
+        }
+      },
+      "care": {
+        "heading": "Opieka techniczna · miesięcznie",
+        "discount": "Roczna opłata z góry: 15% taniej.",
+        "basic": {
+          "name": "Care Basic",
+          "subtitle": "hosting + serwis",
+          "desc": "Hosting, kopie zapasowe, aktualizacje, monitoring i do 1 godz. poprawek miesięcznie.",
+          "price": "od 200 zł/mies."
+        },
+        "plus": {
+          "name": "Care Plus",
+          "subtitle": "serwis + treści",
+          "desc": "Wszystko z Basic + redakcja treści (3–4 godz./mies.), wsparcie SEO i raport miesięczny.",
+          "price": "od 800 zł/mies."
+        }
+      },
+      "ctaQuote": "Zamów bezpłatną wycenę"
+    },
+    "process": {
+      "h2": "Jak pracuję",
+      "steps": {
+        "1": { "title": "Analiza", "desc": "Poznam Twój biznes i to, czego potrzebujesz." },
+        "2": { "title": "Projekt", "desc": "Pokażę, jak strona będzie wyglądać. Ty akceptujesz." },
+        "3": { "title": "Realizacja", "desc": "Buduję stronę i sprawdzam ją pod kątem jakości i bezpieczeństwa." },
+        "4": { "title": "Start i opieka", "desc": "Publikuję i zostaję na wsparciu." }
+      }
+    },
+    "portfolio": {
+      "h2": "Realizacje",
+      "empty": "Twój projekt może być tu pierwszy."
+    },
+    "about": {
+      "h2": "Za Nexova stoi jedna osoba. To z nią rozmawiasz.",
+      "body": "Bez pośredników i call center. Prowadzę Twój projekt osobiście, od pierwszej rozmowy po start i wsparcie. Dzięki temu pracuję szybko, a Ty zawsze wiesz, z kim masz do czynienia."
+    },
+    "guarantee": {
+      "h2": "Znajdziemy błąd i naprawimy go za darmo.",
+      "body": "Przez 30 dni od startu naprawiam zgłoszone usterki bez dodatkowych kosztów. Bo strona ma działać, a nie tylko ładnie wyglądać."
+    },
+    "faq": {
+      "h2": "Pytania i odpowiedzi",
+      "items": {
+        "q1": { "q": "Ile kosztuje strona?", "a": "Zależy od zakresu. Pakiety zaczynają się od 1 500 zł, a dokładną cenę poznasz w bezpłatnej wycenie, bez żadnych zobowiązań." },
+        "q2": { "q": "Ile trwa realizacja?", "a": "Zwykle kilka tygodni, zależnie od wielkości projektu." },
+        "q3": { "q": "Czy mogę później zmieniać treści na stronie?", "a": "Drobne zmiany wprowadzam dla Ciebie w ramach opieki. Jeśli chcesz edytować samodzielnie, dodajemy prosty system do zarządzania treścią." },
+        "q4": { "q": "Co, jeśli coś się zepsuje?", "a": "W okresie gwarancji naprawiam usterki za darmo. Później masz plan opieki." },
+        "q5": { "q": "Pracujesz też z firmami z Czech?", "a": "Tak – obsługuję klientów z Polski i Czech, także po czesku." }
+      }
+    },
+    "finalCta": {
+      "h2": "Gotowy na stronę, która przyciąga klientów?",
+      "body": "Napisz, a przygotuję bezpłatną wycenę dla Twojego projektu.",
+      "cta": "Zamów bezpłatną wycenę"
+    }
+  }
+}

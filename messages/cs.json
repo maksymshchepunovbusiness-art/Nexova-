@@ -1,0 +1,122 @@
+{
+  "_note": "NEEDS NATIVE REVIEW — machine translation, must be proofread by a native Czech speaker before launch",
+  "meta": {
+    "title": "Nexova – Profesionální webové stránky pro firmy | Polsko a Česko",
+    "description": "Tvořím profesionální webové stránky pro malé firmy v Polsku a Česku. Kvalita agentury, cena jednotlivce. Bezplatná nabídka."
+  },
+  "nav": {
+    "services": "Služby",
+    "process": "Jak pracuji",
+    "portfolio": "Reference",
+    "about": "O nás",
+    "contact": "Kontakt"
+  },
+  "cta": {
+    "quote": "Objednat bezplatnou nabídku",
+    "pricing": "Zobrazit balíčky a ceny"
+  },
+  "footer": {
+    "tagline": "Webové stránky pro místní firmy v Polsku a Česku.",
+    "menu": "Menu",
+    "contact": "Kontakt",
+    "language": "Jazyk",
+    "privacy": "Zásady ochrany osobních údajů"
+  },
+  "home": {
+    "hero": {
+      "h1": "Kvalita agentury. Rychlost a cena jednoho člověka.",
+      "sub": "Profesionální web pro vaše podnikání – rychle, poctivě a bez agenturních ceníků. Komunikujete přímo s osobou, která váš web tvoří.",
+      "ctaPrimary": "Objednat bezplatnou nabídku",
+      "ctaSecondary": "Zobrazit balíčky a ceny"
+    },
+    "trust": {
+      "item1": "Záruka opravy chyb",
+      "item2": "Přímý kontakt s realizátorem",
+      "item3": "Bez skrytých nákladů",
+      "item4": "Weby pro firmy v Polsku a Česku"
+    },
+    "problem": {
+      "h2": "Vaši zákazníci vás nejdříve hledají na internetu.",
+      "body": "Slabý web – nebo jeho absence – znamená zákazníky, kteří odcházejí ke konkurenci. Volba přitom nebývá jednoduchá: levný freelancer, který zmizí, nebo agentura, která účtuje jako korporace. Nexova je třetí cesta."
+    },
+    "comparison": {
+      "h2": "Proč Nexova, a ne levnější nebo dražší volba",
+      "col": {
+        "concern": "Co vás trápí",
+        "freelancer": "Levný freelancer",
+        "nexova": "Nexova",
+        "agency": "Velká agentura"
+      },
+      "rows": {
+        "budget": { "concern": "\"Vejdu se do rozpočtu?\"", "freelancer": "Levně – ale často vše znovu", "nexova": "Poctivá, pevná cena, bez skrytých příplatků", "agency": "Draho: platíte za kancelář a manažery" },
+        "timeline": { "concern": "\"Kdy dostanu web?\"", "freelancer": "Termíny se posouvají", "nexova": "Týdny, ne měsíce", "agency": "Měsíce dojednávání" },
+        "ghosting": { "concern": "\"A co když zmizí po zaplacení?\"", "freelancer": "Stává se – a často", "nexova": "Jsem v kontaktu i po spuštění", "agency": "Nezmizí, ale každý krok znamená nový účet" },
+        "contact": { "concern": "\"S kým budu komunikovat?\"", "freelancer": "S jednou osobou, ale nespolehlivou", "nexova": "Přímo s osobou, která váš web tvoří", "agency": "S manažerem, ne s realizátorem" },
+        "bugs": { "concern": "\"Co když se něco rozbije?\"", "freelancer": "To je váš problém", "nexova": "Záruka: najdeme chybu – opravíme zdarma", "agency": "Opraví, ale přičtou k účtu" },
+        "understanding": { "concern": "\"Pochopí můj byznys?\"", "freelancer": "Jedna šablona pro všechny", "nexova": "Osobně pronikám do vašeho oboru", "agency": "Jste jedním z mnoha projektů" }
+      }
+    },
+    "services": {
+      "h2": "Jednoduché balíčky, jasné ceny.",
+      "oneTime": "Realizace webu — jednorázově",
+      "packages": {
+        "start": { "name": "Start", "subtitle": "landing / jednostránkový web", "desc": "Jedna stránka, která buduje důvěru a sbírá kontakty. Ideální pro začátek.", "price": "od 1 500 Kč" },
+        "business": { "name": "Business", "subtitle": "vícestránkový web", "desc": "Kompletní firemní web: obsah a SEO, postavený pro získávání klientů.", "price": "od 3 500 Kč" },
+        "shop": { "name": "Obchod", "subtitle": "e-shop", "desc": "Prodávejte online: katalog, košík, platby.", "price": "od 7 000 Kč" }
+      },
+      "care": {
+        "heading": "Technická péče — měsíčně",
+        "discount": "Při roční platbě předem – 15% sleva.",
+        "basic": {
+          "name": "Care Basic",
+          "subtitle": "hosting + servis",
+          "desc": "Hosting, zálohy, aktualizace, monitoring a až 1 hod. úprav měsíčně.",
+          "price": "od 200 Kč/měs."
+        },
+        "plus": {
+          "name": "Care Plus",
+          "subtitle": "servis + obsah",
+          "desc": "Vše z Basic + editace obsahu (3–4 hod./měs.), podpora SEO a měsíční report.",
+          "price": "od 800 Kč/měs."
+        }
+      },
+      "ctaQuote": "Objednat bezplatnou nabídku"
+    },
+    "process": {
+      "h2": "Jak pracuji",
+      "steps": {
+        "1": { "title": "Analýza", "desc": "Poznám vaše podnikání a potřeby." },
+        "2": { "title": "Návrh", "desc": "Ukážu, jak bude web vypadat. Vy schválíte." },
+        "3": { "title": "Realizace", "desc": "Postavím web a ověřím kvalitu a bezpečnost." },
+        "4": { "title": "Spuštění a péče", "desc": "Spustím a zůstanu k dispozici." }
+      }
+    },
+    "portfolio": {
+      "h2": "Reference",
+      "empty": "Váš projekt může být tu první."
+    },
+    "about": {
+      "h2": "Za Nexova stojí jeden člověk – a s ním komunikujete.",
+      "body": "Bez prostředníků a call centra. Vedu váš projekt osobně, od první schůzky po spuštění a podporu. Díky tomu pracuji rychle a vy vždy víte, s kým jednáte."
+    },
+    "guarantee": {
+      "h2": "Najdeme chybu – opravíme zdarma.",
+      "body": "Po dobu 30 dní od spuštění opravuji nahlášené závady bez dalších nákladů. Protože web má fungovat, nejen hezky vypadat."
+    },
+    "faq": {
+      "h2": "Časté dotazy",
+      "items": {
+        "q1": { "q": "Kolik stojí web?", "a": "Záleží na rozsahu. Balíčky začínají od 1 500 Kč, přesnou cenu zjistíte v bezplatné nabídce – bez závazků." },
+        "q2": { "q": "Jak dlouho trvá realizace?", "a": "Obvykle několik týdnů, podle velikosti projektu." },
+        "q3": { "q": "Mohu později měnit obsah?", "a": "Drobné změny provádím za vás v rámci péče. Pokud chcete editovat sami, přidáme jednoduchý redakční systém." },
+        "q4": { "q": "Co když se něco pokazí?", "a": "V záruční době opravuji závady zdarma. Pak máte plán péče." },
+        "q5": { "q": "Pracujete i s českými firmami?", "a": "Ano – obsluhuji klienty z Polska i Česka, také v češtině." }
+      }
+    },
+    "finalCta": {
+      "h2": "Připraveni na web, který přitahuje zákazníky?",
+      "body": "Napište – připravím bezplatnou nabídku pro vaše podnikání.",
+      "cta": "Objednat bezplatnou nabídku"
+    }
+  }
+}

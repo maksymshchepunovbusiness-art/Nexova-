@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "title": "Nexova – Professional Websites for Local Businesses | Poland & Czechia",
+    "description": "I build professional websites for small businesses in Poland and Czechia. Agency quality, solo-studio price. Free quote."
+  },
+  "nav": {
+    "services": "Services",
+    "process": "How I Work",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "quote": "Get a Free Quote",
+    "pricing": "See Packages & Pricing"
+  },
+  "footer": {
+    "tagline": "Websites for local businesses in Poland and Czechia.",
+    "menu": "Menu",
+    "contact": "Contact",
+    "language": "Language",
+    "privacy": "Privacy Policy"
+  },
+  "home": {
+    "hero": {
+      "h1": "Agency quality. Solo speed and price.",
+      "sub": "A professional website for your business – fast, honest, and without agency price tags. You talk directly to the person building it.",
+      "ctaPrimary": "Get a Free Quote",
+      "ctaSecondary": "See Packages & Pricing"
+    },
+    "trust": {
+      "item1": "Bug-fix guarantee",
+      "item2": "Direct contact with the maker",
+      "item3": "No hidden costs",
+      "item4": "Websites for businesses in Poland & Czechia"
+    },
+    "problem": {
+      "h2": "Your customers check you online first.",
+      "body": "A weak website – or no website at all – sends customers to your competitors. The choice isn't easy: a cheap freelancer who disappears, or an agency that charges like a corporation. Nexova is the third option."
+    },
+    "comparison": {
+      "h2": "Why Nexova instead of cheaper or more expensive",
+      "col": {
+        "concern": "Your concern",
+        "freelancer": "Cheap freelancer",
+        "nexova": "Nexova",
+        "agency": "Large agency"
+      },
+      "rows": {
+        "budget": { "concern": "\"Will I stay within budget?\"", "freelancer": "Cheap – but often redone from scratch", "nexova": "Fair fixed price, no hidden extras", "agency": "Expensive: you pay for their office and managers" },
+        "timeline": { "concern": "\"When will I get my site?\"", "freelancer": "Deadlines slip", "nexova": "Weeks, not months", "agency": "Months of back-and-forth" },
+        "ghosting": { "concern": "\"What if they disappear after payment?\"", "freelancer": "Happens – and often", "nexova": "I stay in touch after launch", "agency": "Won't disappear, but every step costs extra" },
+        "contact": { "concern": "\"Who will I talk to?\"", "freelancer": "One person, but unreliable", "nexova": "Directly with the person building your site", "agency": "A project manager, not the maker" },
+        "bugs": { "concern": "\"What if something breaks?\"", "freelancer": "Your problem now", "nexova": "Guarantee: we find the bug – we fix it for free", "agency": "They'll fix it – and bill you for it" },
+        "understanding": { "concern": "\"Will they understand my business?\"", "freelancer": "One template for everyone", "nexova": "I personally dig into your industry", "agency": "You're one of many projects" }
+      }
+    },
+    "services": {
+      "h2": "Simple packages, clear pricing.",
+      "oneTime": "Website build — one-time fee",
+      "packages": {
+        "start": { "name": "Start", "subtitle": "landing / single page", "desc": "One page that builds trust and captures contacts. Perfect to get started.", "price": "from 1,500 PLN" },
+        "business": { "name": "Business", "subtitle": "multi-page website", "desc": "Full company website: content and SEO, built to attract clients.", "price": "from 3,500 PLN" },
+        "shop": { "name": "Shop", "subtitle": "e-commerce", "desc": "Sell online: catalogue, cart, payments.", "price": "from 7,000 PLN" }
+      },
+      "care": {
+        "heading": "Technical care — monthly",
+        "discount": "Pay annually upfront – 15% off.",
+        "basic": {
+          "name": "Care Basic",
+          "subtitle": "hosting + maintenance",
+          "desc": "Hosting, backups, updates, monitoring, and up to 1 hr of fixes per month.",
+          "price": "from 200 PLN/mo."
+        },
+        "plus": {
+          "name": "Care Plus",
+          "subtitle": "maintenance + content",
+          "desc": "Everything in Basic + content editing (3–4 hrs/mo.), SEO support, and monthly report.",
+          "price": "from 800 PLN/mo."
+        }
+      },
+      "ctaQuote": "Get a Free Quote"
+    },
+    "process": {
+      "h2": "How I Work",
+      "steps": {
+        "1": { "title": "Analysis", "desc": "I learn about your business and what you need." },
+        "2": { "title": "Design", "desc": "I show you how the site will look. You approve." },
+        "3": { "title": "Build", "desc": "I build the site and verify quality and security." },
+        "4": { "title": "Launch & Support", "desc": "I publish and stay on hand." }
+      }
+    },
+    "portfolio": {
+      "h2": "Portfolio",
+      "empty": "Your project could be first here."
+    },
+    "about": {
+      "h2": "Nexova is one person – and you talk directly to them.",
+      "body": "No middlemen, no call centres. I run your project personally, from the first conversation through launch and ongoing support. That's how I stay fast and you always know who you're dealing with."
+    },
+    "guarantee": {
+      "h2": "We find the bug – we fix it for free.",
+      "body": "For 30 days after launch I fix reported issues at no extra cost. Because a website should work, not just look good."
+    },
+    "faq": {
+      "h2": "FAQ",
+      "items": {
+        "q1": { "q": "How much does a website cost?", "a": "It depends on scope. Packages start from 1,500 PLN, and you'll get an exact price in a free quote – no obligations." },
+        "q2": { "q": "How long does it take?", "a": "Usually a few weeks, depending on project size." },
+        "q3": { "q": "Can I update the content later?", "a": "Small changes are included in the Care plan. If you want to edit yourself, we add a simple CMS." },
+        "q4": { "q": "What if something breaks?", "a": "During the guarantee period I fix issues for free. After that, you have the Care plan." },
+        "q5": { "q": "Do you work with Czech businesses?", "a": "Yes – I serve clients in Poland and Czechia, also in Czech." }
+      }
+    },
+    "finalCta": {
+      "h2": "Ready for a website that brings in clients?",
+      "body": "Get in touch – I'll prepare a free quote for your business.",
+      "cta": "Get a Free Quote"
+    }
+  }
+}
