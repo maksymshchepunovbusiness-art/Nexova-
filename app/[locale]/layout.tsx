@@ -79,7 +79,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${cormorant.variable} h-full`}
+      className={`${inter.variable} ${cormorant.variable} min-h-full`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
