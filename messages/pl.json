@@ -115,13 +115,13 @@
           "name": "Care Basic",
           "subtitle": "hosting + serwis",
           "desc": "Hosting, kopie zapasowe, aktualizacje, monitoring i do 1 godz. poprawek miesięcznie.",
-          "price": "od 200 zł/mies."
+          "price": "400 zł/mies."
         },
         "plus": {
           "name": "Care Plus",
           "subtitle": "serwis + treści",
           "desc": "Wszystko z Basic + redakcja treści (3–4 godz./mies.), wsparcie SEO i raport miesięczny.",
-          "price": "od 800 zł/mies."
+          "price": "800 zł/mies."
         }
       },
       "ctaQuote": "Zamów bezpłatną wycenę"
@@ -161,6 +161,41 @@
       "h2": "Gotowy na stronę, która przyciąga klientów?",
       "body": "Napisz, a przygotuję bezpłatną wycenę dla Twojego projektu.",
       "cta": "Zamów bezpłatną wycenę"
+    }
+  },
+  "pricing": {
+    "subscription": {
+      "badge": "Wygodny start",
+      "toggleOneTime": "Płatność jednorazowa",
+      "toggleSubscription": "Strona w abonamencie",
+      "heading": "Strona bez dużego wydatku na start",
+      "subheading": "Projekt, wdrożenie, hosting i opieka — w jednej stałej miesięcznej kwocie. Umowa na 12 miesięcy, potem płacisz tylko za opiekę.",
+      "careLabel": "Taryfa opieki",
+      "siteLabel": "Typ strony",
+      "careBasic": "Care Basic",
+      "carePlus": "Care Plus",
+      "siteStart": "Start",
+      "siteBusiness": "Business",
+      "siteSklep": "Sklep",
+      "priceNote": "od {price} przez pierwsze 12 miesięcy",
+      "priceAfter": "potem tylko opieka od {carePrice}",
+      "minTerm": "Umowa na 12 miesięcy",
+      "cta": "Umów bezpłatną wycenę",
+      "howHeading": "Jak to działa",
+      "steps": {
+        "1": { "title": "Bezpłatna wycena",              "desc": "Rozmawiamy o Twoim biznesie i ustalamy zakres oraz miesięczną kwotę." },
+        "2": { "title": "Umowa na 12 miesięcy",          "desc": "Jedna stała kwota co miesiąc. Bez ukrytych kosztów." },
+        "3": { "title": "Budujemy i uruchamiamy stronę", "desc": "Projekt, teksty, wdrożenie i hosting są w cenie." },
+        "4": { "title": "Po 12 miesiącach",              "desc": "Strona jest w pełni opłacona i należy do Ciebie. Dalej płacisz tylko za opiekę — albo kończysz współpracę." }
+      },
+      "faqHeading": "Pytania i odpowiedzi",
+      "faq": {
+        "q1": { "q": "Co się dzieje po 12 miesiącach?", "a": "Strona jest w pełni rozliczona. Możesz zostać na samej opiece albo zakończyć współpracę — strona zostaje u Ciebie." },
+        "q2": { "q": "Czy strona należy do mnie?",       "a": "Tak. Po rozliczeniu części abonamentu za stronę prawa autorskie przechodzą na Ciebie. Szczegóły określa umowa." },
+        "q3": { "q": "Czy mogę zrezygnować wcześniej?", "a": "Umowa obowiązuje przez 12 miesięcy. Przy wcześniejszej rezygnacji rozliczamy pozostałą wartość strony — szczegóły znajdziesz w umowie." },
+        "q4": { "q": "Co obejmuje opieka?",              "a": "Care Basic to hosting, kopie zapasowe, aktualizacje i do 1 godz. poprawek miesięcznie. Care Plus dodaje redakcję treści, wsparcie SEO i raport miesięczny." }
+      },
+      "contextMessage": "Interesuje mnie abonament: strona {site} + {care}"
     }
   },
   "contact": {

@@ -59,9 +59,9 @@
       "h2": "Simple packages, clear pricing.",
       "oneTime": "Website build — one-time fee",
       "packages": {
-        "start": { "name": "Start", "subtitle": "landing / single page", "desc": "One page that builds trust and captures contacts. Perfect to get started.", "price": "from 1,500 PLN" },
-        "business": { "name": "Business", "subtitle": "multi-page website", "desc": "Full company website: content and SEO, built to attract clients.", "price": "from 3,500 PLN" },
-        "shop": { "name": "Shop", "subtitle": "e-commerce", "desc": "Sell online: catalogue, cart, payments.", "price": "from 7,000 PLN" }
+        "start": { "name": "Start", "subtitle": "landing / single page", "desc": "One page that builds trust and captures contacts. Perfect to get started.", "price": "from $375" },
+        "business": { "name": "Business", "subtitle": "multi-page website", "desc": "Full company website: content and SEO, built to attract clients.", "price": "from $875" },
+        "shop": { "name": "Shop", "subtitle": "e-commerce", "desc": "Sell online: catalogue, cart, payments.", "price": "from $1,750" }
       },
       "care": {
         "heading": "Technical care — monthly",
@@ -70,13 +70,13 @@
           "name": "Care Basic",
           "subtitle": "hosting + maintenance",
           "desc": "Hosting, backups, updates, monitoring, and up to 1 hr of fixes per month.",
-          "price": "from 200 PLN/mo."
+          "price": "$100/mo."
         },
         "plus": {
           "name": "Care Plus",
           "subtitle": "maintenance + content",
           "desc": "Everything in Basic + content editing (3–4 hrs/mo.), SEO support, and monthly report.",
-          "price": "from 800 PLN/mo."
+          "price": "$200/mo."
         }
       },
       "ctaQuote": "Get a Free Quote"
@@ -116,6 +116,41 @@
       "h2": "Ready for a website that brings in clients?",
       "body": "Get in touch – I'll prepare a free quote for your business.",
       "cta": "Get a Free Quote"
+    }
+  },
+  "pricing": {
+    "subscription": {
+      "badge": "Easy start",
+      "toggleOneTime": "One-time payment",
+      "toggleSubscription": "Site in subscription",
+      "heading": "A site without a big upfront cost",
+      "subheading": "Design, build, hosting, and maintenance — in one fixed monthly amount. 12-month contract, then you pay only for maintenance.",
+      "careLabel": "Maintenance plan",
+      "siteLabel": "Site type",
+      "careBasic": "Care Basic",
+      "carePlus": "Care Plus",
+      "siteStart": "Start",
+      "siteBusiness": "Business",
+      "siteSklep": "Shop",
+      "priceNote": "from {price} for the first 12 months",
+      "priceAfter": "then only maintenance from {carePrice}",
+      "minTerm": "12-month contract",
+      "cta": "Book a free quote",
+      "howHeading": "How it works",
+      "steps": {
+        "1": { "title": "Free quote",            "desc": "We talk about your business and agree on scope and monthly cost." },
+        "2": { "title": "12-month contract",     "desc": "One fixed amount each month. No hidden costs." },
+        "3": { "title": "We build and launch",   "desc": "Design, copy, build, and hosting are all included." },
+        "4": { "title": "After 12 months",       "desc": "The site is fully paid off and belongs to you. You can stay on maintenance only — or leave." }
+      },
+      "faqHeading": "Questions & Answers",
+      "faq": {
+        "q1": { "q": "What happens after 12 months?",    "a": "The site is fully settled. You can continue on maintenance only or end the contract — the site stays with you." },
+        "q2": { "q": "Do I own the site?",               "a": "Yes. Once the site portion of the subscription is settled, copyright transfers to you. Details are in the contract." },
+        "q3": { "q": "Can I cancel early?",              "a": "The contract runs for 12 months. If you cancel early, we settle the remaining site value — details are in the contract." },
+        "q4": { "q": "What does maintenance cover?",     "a": "Care Basic includes hosting, backups, updates, and up to 1 hr of fixes per month. Care Plus adds content editing, SEO support, and a monthly report." }
+      },
+      "contextMessage": "I'm interested in the subscription: {site} site + {care}"
     }
   },
   "contact": {

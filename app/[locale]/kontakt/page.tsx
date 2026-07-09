@@ -6,6 +6,7 @@ import ContactSidebar from '@/components/contact/ContactSidebar';
 
 interface Props {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ context?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -17,8 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function KontaktPage({ params }: Props) {
+export default async function KontaktPage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const { context } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'contact' });
 
   return (
@@ -33,7 +35,7 @@ export default async function KontaktPage({ params }: Props) {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 lg:items-start">
             <div className="lg:col-span-3">
-              <ContactForm locale={locale} />
+              <ContactForm locale={locale} initialMessage={context ?? ''} />
             </div>
             <div className="lg:col-span-2">
               <ContactSidebar />

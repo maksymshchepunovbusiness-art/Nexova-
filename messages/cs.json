@@ -60,9 +60,9 @@
       "h2": "Jednoduché balíčky, jasné ceny.",
       "oneTime": "Realizace webu — jednorázově",
       "packages": {
-        "start": { "name": "Start", "subtitle": "landing / jednostránkový web", "desc": "Jedna stránka, která buduje důvěru a sbírá kontakty. Ideální pro začátek.", "price": "od 1 500 Kč" },
-        "business": { "name": "Business", "subtitle": "vícestránkový web", "desc": "Kompletní firemní web: obsah a SEO, postavený pro získávání klientů.", "price": "od 3 500 Kč" },
-        "shop": { "name": "Obchod", "subtitle": "e-shop", "desc": "Prodávejte online: katalog, košík, platby.", "price": "od 7 000 Kč" }
+        "start": { "name": "Start", "subtitle": "landing / jednostránkový web", "desc": "Jedna stránka, která buduje důvěru a sbírá kontakty. Ideální pro začátek.", "price": "od 8 700 Kč" },
+        "business": { "name": "Business", "subtitle": "vícestránkový web", "desc": "Kompletní firemní web: obsah a SEO, postavený pro získávání klientů.", "price": "od 20 300 Kč" },
+        "shop": { "name": "Obchod", "subtitle": "e-shop", "desc": "Prodávejte online: katalog, košík, platby.", "price": "od 40 600 Kč" }
       },
       "care": {
         "heading": "Technická péče — měsíčně",
@@ -71,13 +71,13 @@
           "name": "Care Basic",
           "subtitle": "hosting + servis",
           "desc": "Hosting, zálohy, aktualizace, monitoring a až 1 hod. úprav měsíčně.",
-          "price": "od 200 Kč/měs."
+          "price": "2 300 Kč/měs."
         },
         "plus": {
           "name": "Care Plus",
           "subtitle": "servis + obsah",
           "desc": "Vše z Basic + editace obsahu (3–4 hod./měs.), podpora SEO a měsíční report.",
-          "price": "od 800 Kč/měs."
+          "price": "4 600 Kč/měs."
         }
       },
       "ctaQuote": "Objednat bezplatnou nabídku"
@@ -117,6 +117,41 @@
       "h2": "Připraveni na web, který přitahuje zákazníky?",
       "body": "Napište – připravím bezplatnou nabídku pro vaše podnikání.",
       "cta": "Objednat bezplatnou nabídku"
+    }
+  },
+  "pricing": {
+    "subscription": {
+      "badge": "Pohodlný start",
+      "toggleOneTime": "Jednorázová platba",
+      "toggleSubscription": "Web v předplatném",
+      "heading": "Web bez velkého počátečního výdaje",
+      "subheading": "Projekt, realizace, hosting a péče — v jedné pevné měsíční částce. Smlouva na 12 měsíců, poté platíte jen za péči.",
+      "careLabel": "Tarif péče",
+      "siteLabel": "Typ webu",
+      "careBasic": "Care Basic",
+      "carePlus": "Care Plus",
+      "siteStart": "Start",
+      "siteBusiness": "Business",
+      "siteSklep": "Obchod",
+      "priceNote": "od {price} po dobu prvních 12 měsíců",
+      "priceAfter": "poté jen péče od {carePrice}",
+      "minTerm": "Smlouva na 12 měsíců",
+      "cta": "Domluvit bezplatnou nabídku",
+      "howHeading": "Jak to funguje",
+      "steps": {
+        "1": { "title": "Bezplatná nabídka",       "desc": "Probereme váš byznys a dohodneme rozsah a měsíční částku." },
+        "2": { "title": "Smlouva na 12 měsíců",    "desc": "Jedna pevná částka každý měsíc. Bez skrytých nákladů." },
+        "3": { "title": "Postavíme a spustíme web", "desc": "Projekt, texty, realizace i hosting jsou v ceně." },
+        "4": { "title": "Po 12 měsících",           "desc": "Web je plně uhrazen a patří vám. Dál platíte jen za péči — nebo spolupráci ukončíte." }
+      },
+      "faqHeading": "Časté dotazy",
+      "faq": {
+        "q1": { "q": "Co se stane po 12 měsících?",    "a": "Web je plně vyrovnán. Můžete zůstat jen na péči nebo ukončit spolupráci — web zůstane u vás." },
+        "q2": { "q": "Patří mi web?",                   "a": "Ano. Po uhrazení části předplatného za web na vás přechází autorská práva. Podrobnosti stanoví smlouva." },
+        "q3": { "q": "Mohu odstoupit dříve?",           "a": "Smlouva platí 12 měsíců. Při předčasném ukončení vyrovnáme zbývající hodnotu webu — podrobnosti jsou ve smlouvě." },
+        "q4": { "q": "Co zahrnuje péče?",               "a": "Care Basic zahrnuje hosting, zálohy, aktualizace a až 1 hod. úprav měsíčně. Care Plus přidává editaci obsahu, podporu SEO a měsíční report." }
+      },
+      "contextMessage": "Mám zájem o předplatné: web {site} + {care}"
     }
   },
   "contact": {

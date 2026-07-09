@@ -8,6 +8,7 @@ type State = 'idle' | 'loading' | 'success' | 'error';
 
 interface Props {
   locale: string;
+  initialMessage?: string;
 }
 
 const INPUT =
@@ -15,11 +16,11 @@ const INPUT =
 
 const INPUT_ERROR = 'border-red-400 dark:border-red-500';
 
-export default function ContactForm({ locale }: Props) {
+export default function ContactForm({ locale, initialMessage = '' }: Props) {
   const t = useTranslations('contact');
 
   const [state, setState] = useState<State>('idle');
-  const [values, setValues] = useState({ name: '', email: '', phone: '', message: '' });
+  const [values, setValues] = useState({ name: '', email: '', phone: '', message: initialMessage });
   const [errors, setErrors] = useState<Partial<Record<'name' | 'email' | 'message', string>>>({});
 
   function fieldError(field: 'name' | 'email' | 'message', v = values): string | undefined {
