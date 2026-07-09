@@ -6,7 +6,8 @@ export const pricing = {
   },
   subscription: {
     minTermMonths: 12,
-    // Lower bound of monthly total when paired with Care Basic
+    discountPct: 0.25, // -25% vs jednorazowa — update here to change everywhere
+    // Lower bound of monthly total when paired with Care Basic (placeholder — Maks confirms)
     fromPln: {
       start:    600,
       business: 800,
@@ -52,11 +53,16 @@ export function formatPrice(amountPln: number, locale: string): string {
   return cfg.prefix ? `${cfg.symbol}${n}${cfg.unit}` : `${n} ${cfg.symbol}${cfg.unit}`;
 }
 
-export function calcSubscriptionPrice(
-  site: SiteType,
-  care: CareTier,
-): number {
-  const base = pricing.subscription.fromPln[site];
-  const careDiff = pricing.care[care].pricePln - pricing.care.basic.pricePln;
-  return base + careDiff;
+export function discountedCarePrice(care: CareTier): number {
+  return Math.round(
+    pricing.care[care].pricePln * (1 - pricing.subscription.discountPct)
+  );
+}
+
+export function calcSubscriptionPrice(site: SiteType, care: CareTier): number {
+  const base = pricing.subscription.fromPln[site]; // includes discounted Basic care
+  const extraCare =
+    (pricing.care[care].pricePln - pricing.care.basic.pricePln) *
+    (1 - pricing.subscription.discountPct);
+  return Math.round(base + extraCare);
 }

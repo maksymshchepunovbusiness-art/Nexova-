@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
@@ -32,38 +32,56 @@ export default function ServicesSection() {
           Oferta
         </p>
 
-        {/* Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex rounded-full bg-surface dark:bg-surface-2 border border-border p-1 gap-1">
-            <button
-              onClick={() => setTab('jednorazowa')}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                tab === 'jednorazowa'
-                  ? 'bg-indigo text-white shadow-sm'
-                  : 'text-text-muted hover:text-ink dark:hover:text-white'
-              }`}
-            >
+        {/* Toggle вЂ” card-style, subscription visibly recommended */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+
+          {/* Jednorazowa */}
+          <button
+            onClick={() => setTab('jednorazowa')}
+            className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
+              tab === 'jednorazowa'
+                ? 'border-indigo bg-indigo/5 dark:bg-indigo/10'
+                : 'border-border bg-surface dark:bg-surface-2 hover:border-indigo/30'
+            }`}
+          >
+            <p className={`font-bold text-base mb-1.5 ${tab === 'jednorazowa' ? 'text-indigo' : 'text-ink dark:text-white'}`}>
               {tSub('toggleOneTime')}
-            </button>
-            <button
-              onClick={() => setTab('abonament')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                tab === 'abonament'
-                  ? 'bg-indigo text-white shadow-sm'
-                  : 'text-text-muted hover:text-ink dark:hover:text-white'
-              }`}
-            >
-              {tSub('toggleSubscription')}
-              {tab !== 'abonament' && (
-                <span className="text-[10px] font-bold bg-indigo/10 text-indigo rounded-full px-2 py-0.5 leading-none">
-                  {tSub('badge')}
-                </span>
-              )}
-            </button>
-          </div>
+            </p>
+            <p className="text-sm text-text-muted dark:text-white/60 leading-snug">
+              {tSub('toggleOneTimeDesc')}
+            </p>
+          </button>
+
+          {/* Abonament вЂ” recommended */}
+          <button
+            onClick={() => setTab('abonament')}
+            className={`relative text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
+              tab === 'abonament'
+                ? 'border-indigo bg-indigo/5 dark:bg-indigo/10'
+                : 'border-indigo/40 bg-surface dark:bg-surface-2 hover:border-indigo/70'
+            }`}
+          >
+            <span className="absolute -top-3.5 left-4 inline-flex items-center bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
+              {tSub('recommended')}
+            </span>
+            <div className="flex items-start justify-between gap-3 mt-1">
+              <div className="min-w-0">
+                <p className={`font-bold text-base mb-1.5 ${tab === 'abonament' ? 'text-indigo' : 'text-ink dark:text-white'}`}>
+                  {tSub('toggleSubscription')}
+                </p>
+                <p className="text-sm text-text-muted dark:text-white/60 leading-snug">
+                  {tSub('toggleSubscriptionDesc')}
+                </p>
+              </div>
+              <span className="shrink-0 mt-0.5 inline-block text-[11px] font-bold text-indigo bg-indigo/10 dark:bg-indigo/20 rounded-full px-2.5 py-1 whitespace-nowrap">
+                {tSub('savingsChip')}
+              </span>
+            </div>
+          </button>
+
         </div>
 
-        {/* ── Jednorazowa tab ─────────────────────────────────────── */}
+        {/* в”Ђв”Ђ Jednorazowa tab в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */}
         {tab === 'jednorazowa' && (
           <>
             <h2 className="text-h2 text-ink dark:text-white text-center mb-14">{t('h2')}</h2>
@@ -87,7 +105,7 @@ export default function ServicesSection() {
                   {pkg.featured && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
                       <span className="inline-flex items-center gap-1 bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg">
-                        ★ Najpopularniejszy
+                        в… Najpopularniejszy
                       </span>
                     </div>
                   )}
@@ -166,7 +184,7 @@ export default function ServicesSection() {
           </>
         )}
 
-        {/* ── Abonament tab ────────────────────────────────────────── */}
+        {/* в”Ђв”Ђ Abonament tab в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */}
         {tab === 'abonament' && <SubscriptionPanel />}
 
       </div>

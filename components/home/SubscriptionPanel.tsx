@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { pricing, formatPrice, calcSubscriptionPrice } from '@/config/pricing';
+import { pricing, formatPrice, calcSubscriptionPrice, discountedCarePrice } from '@/config/pricing';
 import type { SiteType, CareTier } from '@/config/pricing';
 import FaqAccordion from './FaqAccordion';
 
@@ -30,9 +30,13 @@ export default function SubscriptionPanel() {
     basic: t('careBasic'),
     plus:  t('carePlus'),
   };
-  const carePriceLabels: Record<CareTier, string> = {
+  const careOriginalLabels: Record<CareTier, string> = {
     basic: formatPrice(pricing.care.basic.pricePln, locale),
     plus:  formatPrice(pricing.care.plus.pricePln, locale),
+  };
+  const careDiscountedLabels: Record<CareTier, string> = {
+    basic: formatPrice(discountedCarePrice('basic'), locale),
+    plus:  formatPrice(discountedCarePrice('plus'), locale),
   };
 
   const contextParam = encodeURIComponent(
@@ -61,6 +65,16 @@ export default function SubscriptionPanel() {
         {/* ── Selectors + price preview ────────────────────────────── */}
         <div className="bg-surface border border-border rounded-2xl p-6 sm:p-8 shadow-sm">
 
+          {/* Savings banner */}
+          <div className="flex items-center gap-2 mb-6 px-4 py-3 rounded-xl bg-terracotta/10 dark:bg-terracotta/15 border border-terracotta/20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-terracotta" aria-hidden>
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <p className="text-sm font-medium text-terracotta leading-snug">
+              {t('savingsBanner')}
+            </p>
+          </div>
+
           {/* Care tier */}
           <fieldset className="mb-6">
             <legend className="text-label font-semibold text-ink dark:text-white mb-3">
@@ -87,8 +101,13 @@ export default function SubscriptionPanel() {
                   <span className={`text-sm font-medium ${selectedCare === tier ? 'text-indigo' : 'text-ink dark:text-white'}`}>
                     {careLabels[tier]}
                   </span>
-                  <span className={`text-sm ${selectedCare === tier ? 'text-indigo/80' : 'text-text-muted'}`}>
-                    {carePriceLabels[tier]}
+                  <span className="flex flex-col items-end gap-0.5">
+                    <span className="text-xs line-through text-text-muted/70">
+                      {careOriginalLabels[tier]}
+                    </span>
+                    <span className={`text-sm font-semibold ${selectedCare === tier ? 'text-indigo' : 'text-ink dark:text-white'}`}>
+                      {careDiscountedLabels[tier]}
+                    </span>
                   </span>
                 </label>
               ))}

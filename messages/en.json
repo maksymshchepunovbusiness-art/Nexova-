@@ -121,8 +121,13 @@
   "pricing": {
     "subscription": {
       "badge": "Easy start",
+      "recommended": "Recommended",
+      "savingsChip": "−25% cheaper",
       "toggleOneTime": "One-time payment",
+      "toggleOneTimeDesc": "Pay once, the site is yours immediately.",
       "toggleSubscription": "Site in subscription",
+      "toggleSubscriptionDesc": "Fixed monthly amount — no big upfront cost.",
+      "savingsBanner": "Maintenance and project 25% cheaper than one-time payment.",
       "heading": "A site without a big upfront cost",
       "subheading": "Design, build, hosting, and maintenance — in one fixed monthly amount. 12-month contract, then you pay only for maintenance.",
       "careLabel": "Maintenance plan",

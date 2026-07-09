@@ -122,8 +122,13 @@
   "pricing": {
     "subscription": {
       "badge": "Pohodlný start",
+      "recommended": "Doporučeno",
+      "savingsChip": "−25% levněji",
       "toggleOneTime": "Jednorázová platba",
+      "toggleOneTimeDesc": "Zaplaťte jednou, web je ihned váš.",
       "toggleSubscription": "Web v předplatném",
+      "toggleSubscriptionDesc": "Pevná měsíční částka — bez velkého počátečního výdaje.",
+      "savingsBanner": "Péče i projekt o 25 % levněji než při jednorázové platbě.",
       "heading": "Web bez velkého počátečního výdaje",
       "subheading": "Projekt, realizace, hosting a péče — v jedné pevné měsíční částce. Smlouva na 12 měsíců, poté platíte jen za péči.",
       "careLabel": "Tarif péče",

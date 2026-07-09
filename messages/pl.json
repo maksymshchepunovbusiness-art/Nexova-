@@ -166,8 +166,13 @@
   "pricing": {
     "subscription": {
       "badge": "Wygodny start",
+      "recommended": "Polecane",
+      "savingsChip": "−25% taniej",
       "toggleOneTime": "Płatność jednorazowa",
+      "toggleOneTimeDesc": "Zapłać raz za projekt, strona od razu Twoja.",
       "toggleSubscription": "Strona w abonamencie",
+      "toggleSubscriptionDesc": "Stała miesięczna kwota — bez dużego wydatku na start.",
+      "savingsBanner": "Opieka i projekt 25% taniej niż przy płatności jednorazowej.",
       "heading": "Strona bez dużego wydatku na start",
       "subheading": "Projekt, wdrożenie, hosting i opieka — w jednej stałej miesięcznej kwocie. Umowa na 12 miesięcy, potem płacisz tylko za opiekę.",
       "careLabel": "Taryfa opieki",
