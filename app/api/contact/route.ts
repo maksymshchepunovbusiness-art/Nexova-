@@ -22,15 +22,18 @@ export async function POST(req: Request) {
     );
   }
 
+  const esc = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
   const text = [
-    '📬 *Nowe zapytanie — Nexova*',
+    '📬 <b>Nowe zapytanie — Nexova</b>',
     '',
-    `*Imię:* ${data.name}`,
-    `*Email:* ${data.email}`,
-    data.phone ? `*Tel:* ${data.phone}` : null,
-    data.locale ? `*Język:* ${data.locale}` : null,
+    `<b>Imię:</b> ${esc(data.name)}`,
+    `<b>Email:</b> ${esc(data.email)}`,
+    data.phone ? `<b>Tel:</b> ${esc(data.phone)}` : null,
+    data.locale ? `<b>Język:</b> ${esc(data.locale)}` : null,
     '',
-    `*Wiadomość:*\n${data.message}`,
+    `<b>Wiadomość:</b>\n${esc(data.message)}`,
   ]
     .filter(Boolean)
     .join('\n');
@@ -44,7 +47,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           chat_id: chatId,
           text,
-          parse_mode: 'Markdown',
+          parse_mode: 'HTML',
         }),
       }
     );
