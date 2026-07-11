@@ -33,13 +33,9 @@ export default async function KontaktPage({ params, searchParams }: Props) {
 
       <section className="pb-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 lg:items-start">
-            <div className="lg:col-span-3">
-              <ContactForm locale={locale} initialMessage={context ?? ''} />
-            </div>
-            <div className="lg:col-span-2">
-              <ContactSidebar />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 lg:gap-12 lg:items-start">
+            <ContactForm locale={locale} initialMessage={context ?? ''} />
+            <ContactSidebar />
           </div>
         </div>
       </section>

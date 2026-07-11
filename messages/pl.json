@@ -210,20 +210,24 @@
     },
     "hero": {
       "eyebrow": "Kontakt",
-      "h1": "Zacznijmy razem.",
-      "sub": "Opisz swój projekt, a przygotuję bezpłatną wycenę w ciągu 48 godzin."
+      "h1": "Bezpłatna wycena strony internetowej",
+      "sub": "Opisz swój projekt. Otrzymasz bezpłatną wycenę w ciągu 48 godzin — bez zobowiązań."
     },
     "form": {
       "name":       "Imię i nazwisko",
       "namePh":     "Jan Kowalski",
       "email":      "Adres e-mail",
       "emailPh":    "jan@firma.pl",
-      "phone":      "Telefon (opcjonalnie)",
-      "phonePh":    "+48 574 022 812",
-      "message":    "Wiadomość",
-      "messagePh":  "Opisz swój projekt lub zadaj pytanie…",
-      "submit":     "Wyślij wiadomość",
-      "submitting": "Wysyłanie…"
+      "phone":      "Telefon",
+      "phonePh":    "+48 500 000 000",
+      "message":    "Krótki opis projektu",
+      "messagePh":  "Napisz czego potrzebujesz. Np. strona firmowa, sklep internetowy, landing page…",
+      "submit":     "Wyślij zapytanie",
+      "submitting": "Wysyłanie…",
+      "strip1":     "Odpowiedź w 48h",
+      "strip2":     "Bezpłatna konsultacja",
+      "strip3":     "Bez zobowiązań",
+      "strip4":     "Indywidualna wycena"
     },
     "errors": {
       "nameMin":      "Imię musi mieć co najmniej 2 znaki.",
@@ -237,12 +241,15 @@
       "again": "Wyślij kolejną wiadomość"
     },
     "sidebar": {
+      "trustHeading": "Dlaczego Nexova?",
       "email":    "kontakt.nexova.agency@gmail.com",
       "phone":    "+48 574 022 812",
       "response": "Odpowiadam w ciągu 48 godzin.",
-      "trust1":   "Bezpłatna wycena bez zobowiązań",
-      "trust2":   "Bez ukrytych kosztów",
-      "trust3":   "Gwarancja naprawy błędów"
+      "trust1":   "Bezpłatna wycena w 48 godzin",
+      "trust2":   "Nowoczesny design i SEO",
+      "trust3":   "Wsparcie techniczne po wdrożeniu",
+      "trust4":   "Bez ukrytych kosztów",
+      "trust5":   "Gwarancja naprawy błędów"
     }
   }
 }

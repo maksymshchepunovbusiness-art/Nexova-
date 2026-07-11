@@ -165,20 +165,24 @@
     },
     "hero": {
       "eyebrow": "Contact",
-      "h1": "Let's get started.",
-      "sub": "Describe your project and I'll prepare a free quote within 48 hours."
+      "h1": "Free website quote",
+      "sub": "Describe your project. You'll receive a free quote within 48 hours — no commitment."
     },
     "form": {
       "name":       "Full name",
       "namePh":     "John Smith",
       "email":      "Email address",
       "emailPh":    "john@company.com",
-      "phone":      "Phone (optional)",
-      "phonePh":    "+48 574 022 812",
-      "message":    "Message",
-      "messagePh":  "Describe your project or ask a question…",
-      "submit":     "Send message",
-      "submitting": "Sending…"
+      "phone":      "Phone",
+      "phonePh":    "+48 500 000 000",
+      "message":    "Brief project description",
+      "messagePh":  "Tell us what you need. E.g. company website, online shop, landing page…",
+      "submit":     "Send enquiry",
+      "submitting": "Sending…",
+      "strip1":     "Reply within 48h",
+      "strip2":     "Free consultation",
+      "strip3":     "No commitment",
+      "strip4":     "Individual quote"
     },
     "errors": {
       "nameMin":      "Name must be at least 2 characters.",
@@ -192,12 +196,15 @@
       "again": "Send another message"
     },
     "sidebar": {
+      "trustHeading": "Why Nexova?",
       "email":    "kontakt.nexova.agency@gmail.com",
       "phone":    "+48 574 022 812",
       "response": "I respond within 48 hours.",
-      "trust1":   "Free quote, no commitment",
-      "trust2":   "No hidden costs",
-      "trust3":   "Bug-fix guarantee"
+      "trust1":   "Free quote within 48 hours",
+      "trust2":   "Modern design & SEO",
+      "trust3":   "Technical support after launch",
+      "trust4":   "No hidden costs",
+      "trust5":   "Bug-fix guarantee"
     }
   }
 }

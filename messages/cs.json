@@ -166,20 +166,24 @@
     },
     "hero": {
       "eyebrow": "Kontakt",
-      "h1": "Začněme společně.",
-      "sub": "Popište svůj projekt a připravím bezplatnou nabídku do 48 hodin."
+      "h1": "Bezplatná nabídka webu",
+      "sub": "Popište svůj projekt. Dostanete bezplatnou nabídku do 48 hodin — bez závazků."
     },
     "form": {
       "name":       "Jméno a příjmení",
       "namePh":     "Jan Novák",
       "email":      "E-mailová adresa",
       "emailPh":    "jan@firma.cz",
-      "phone":      "Telefon (volitelné)",
-      "phonePh":    "+48 574 022 812",
-      "message":    "Zpráva",
-      "messagePh":  "Popište svůj projekt nebo položte otázku…",
-      "submit":     "Odeslat zprávu",
-      "submitting": "Odesílání…"
+      "phone":      "Telefon",
+      "phonePh":    "+48 500 000 000",
+      "message":    "Krátký popis projektu",
+      "messagePh":  "Napište, co potřebujete. Např. firemní web, e-shop, landing page…",
+      "submit":     "Odeslat dotaz",
+      "submitting": "Odesílání…",
+      "strip1":     "Odpověď do 48 h",
+      "strip2":     "Bezplatná konzultace",
+      "strip3":     "Bez závazků",
+      "strip4":     "Individuální nabídka"
     },
     "errors": {
       "nameMin":      "Jméno musí mít alespoň 2 znaky.",
@@ -193,12 +197,15 @@
       "again": "Odeslat další zprávu"
     },
     "sidebar": {
+      "trustHeading": "Proč Nexova?",
       "email":    "kontakt.nexova.agency@gmail.com",
       "phone":    "+48 574 022 812",
       "response": "Odpovídám do 48 hodin.",
-      "trust1":   "Bezplatná nabídka bez závazků",
-      "trust2":   "Bez skrytých nákladů",
-      "trust3":   "Záruka opravy chyb"
+      "trust1":   "Bezplatná nabídka do 48 hodin",
+      "trust2":   "Moderní design a SEO",
+      "trust3":   "Technická podpora po spuštění",
+      "trust4":   "Bez skrytých nákladů",
+      "trust5":   "Záruka opravy chyb"
     }
   }
 }
