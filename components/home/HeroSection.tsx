@@ -70,7 +70,7 @@ export default function HeroSection({
           <LightPillar
             topColor={isDark ? '#818CF8' : '#5227FF'}
             bottomColor={isDark ? '#4338CA' : '#FF9FFC'}
-            intensity={isDark ? 1.0 : 1.2}
+            intensity={isDark ? 1.0 : 0.55} /* GLOW_INTENSITY — крути здесь: 0.4 тускло, 1.2 оригинал */
             mixBlendMode="screen"
             pillarWidth={isDark ? 2.6 : 1.4}
             pillarHeight={0.45}
