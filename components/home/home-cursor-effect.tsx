@@ -31,8 +31,8 @@ export default function HomeCursorEffect() {
       <LiquidEther
         colors={
           isDark
-            ? ['#4338CA', '#6366F1', '#818CF8', '#A5B4FC']
-            : ['#3730A3', '#4338CA', '#6D5AE6', '#4F46E5']
+            ? ['#2B63FA', '#4B7FFF', '#7AA3FF', '#A8C4FF']
+            : ['#1E4BD1', '#2B63FA', '#4B7FFF', '#6B9BFF']
         }
         mouseForce={18}
         cursorSize={100}

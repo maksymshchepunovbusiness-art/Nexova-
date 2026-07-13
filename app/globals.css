@@ -4,116 +4,82 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Brand colors */
-  --color-indigo:        #4338CA;
-  --color-indigo-deep:   #312E81;
-  --color-indigo-tint:   #EEF2FF;
-  --color-terracotta:    #EA580C;
-  --color-amber:         #F59E0B;
+  /* ── Living paper design tokens ─────────────────────────────────────────── */
+  --color-bg:           #FAF9F6;   /* warm paper — the page background */
+  --color-surface:      #F1EFEA;   /* alternating sections, table stripes */
+  --color-ink:          #14161A;   /* headings + body text */
+  --color-ink-soft:     #4A4E55;   /* secondary text (≥4.5:1 on --bg) */
+  --color-accent:       #2B63FA;   /* THE blue — links, buttons, focus rings */
+  --color-accent-ink:   #1E4BD1;   /* blue on light bg for small text / hover */
+  --color-line:         #E3E0D9;   /* hairline rules, borders */
+  --color-terracotta:   #EA580C;   /* primary CTA fill only */
+  --color-success:      #16A34A;   /* checkmarks, positive states */
 
-  /* Neutrals */
-  --color-ink:           #1C1B29;
-  --color-text-muted:    #55555F;
-  --color-surface:       #FFFFFF;
-  --color-surface-2:     #F7F7FA;
-  --color-border:        #E6E6EC;
-  --color-success:       #16A34A;
+  /* Legacy aliases so existing components compile without renaming */
+  --color-indigo:       #2B63FA;   /* was purple #4338CA → now the accent blue */
+  --color-indigo-deep:  #1E4BD1;   /* was #312E81 → accent-ink */
+  --color-indigo-tint:  #EBF1FF;   /* light wash of new blue */
+  --color-surface-2:    #F1EFEA;   /* same as surface */
+  --color-border:       #E3E0D9;   /* same as line */
+  --color-text-muted:   #4A4E55;   /* same as ink-soft */
+  --color-amber:        #F59E0B;
 
   /* Fonts */
-  --font-sans:   var(--font-inter);
-  --font-serif:  var(--font-cormorant);
+  --font-sans:          var(--font-instrument-sans);
+  --font-serif:         var(--font-fraunces);
+  --font-display:       var(--font-fraunces);
 
   /* Border radius */
-  --radius-card:    14px;
-  --radius-control: 8px;
+  --radius-card:        14px;
+  --radius-control:     8px;
 
-  /* Shadows — soft, earned */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 8px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.07);
-  --shadow-lg: 0 8px 16px rgba(0,0,0,0.06), 0 32px 80px rgba(0,0,0,0.10);
+  /* Shadows — warm-paper soft */
+  --shadow-sm: 0 1px 3px rgba(20,22,26,0.04), 0 4px 12px rgba(20,22,26,0.04);
+  --shadow-md: 0 4px 8px rgba(20,22,26,0.05), 0 16px 40px rgba(20,22,26,0.06);
+  --shadow-lg: 0 8px 16px rgba(20,22,26,0.05), 0 32px 80px rgba(20,22,26,0.08);
 }
 
-/* Dark mode — CSS variable overrides + explicit selectors for guaranteed coverage */
+/* ── Dark mode (minimal overrides — out of scope in Phase 0) ──────────────── */
 .dark,
 html.dark {
-  --color-surface:    #0D0D1A;
-  --color-surface-2:  #14142A;
+  --color-bg:         #0D0D1A;
+  --color-surface:    #14142A;
   --color-ink:        #EEEEF5;
-  --color-text-muted: #8888A0;
+  --color-ink-soft:   #8888A0;
   --color-border:     #2A2A45;
+  --color-line:       #2A2A45;
+  --color-surface-2:  #14142A;
+  --color-text-muted: #8888A0;
   color-scheme: dark;
 }
 
-/* Belt-and-suspenders: explicit rules so backgrounds ALWAYS change in dark mode */
 html.dark body {
-  background-color: #0D0D1A;
-  color: #EEEEF5;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
 }
 
-/* ─── SINGLE PAGE BACKGROUND SURFACE ────────────────────────────────────────
-   The fixed `.page-glow` div (z-index:-1) is the ONLY background layer in
-   both light and dark mode. Every section/footer must be transparent so the
-   single fixed layer shows through the whole page uninterrupted.
-   ─────────────────────────────────────────────────────────────────────────── */
-
-/* Light mode: ambient indigo halo behind the whole page.
-   LightPillar (multiply-blended WebGL) provides the vivid beam in the hero;
-   page-glow provides the wider ambient that persists while scrolling. */
+/* ── No aurora/glow in the new design — page-glow is inert ───────────────── */
 .page-glow {
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 0%,  rgba(67, 56, 202, 0.18) 0%, rgba(67, 56, 202, 0) 100%),
-    radial-gradient(ellipse 55% 28% at 10% 42%, rgba(99, 102, 241, 0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 28% at 90% 58%, rgba(99, 102, 241, 0.06) 0%, transparent 65%);
+  display: none !important;
 }
 
-/* Dark mode: single wide indigo radial on the #0D0D1A body background.
-   600% wide ellipse → radius 300vw, viewport edge at 16.7% → ~10% vs 12%
-   at centre (imperceptible vignette). Same-hue transparent end avoids the
-   rgba(0,0,0,0) premultiplied-alpha darkening artefact. */
-html.dark .page-glow {
-  background: radial-gradient(
-    ellipse 600% 60% at 50% 0%,
-    rgba(99, 102, 241, 0.12) 0%,
-    rgba(99, 102, 241, 0) 100%
-  );
-}
-
-/* Every <section> is transparent in BOTH themes —
-   the body + page-glow show through with no per-section repaints. */
+/* Every <section> transparent so body bg shows through */
 section {
   background: transparent !important;
 }
 
-/* Footer: transparent in both themes */
 footer {
   background: transparent !important;
 }
 
-/* Footer top border and header bottom border: visible in light mode
-   as a hairline, removed in dark mode */
+/* Dark-mode border cleanup */
 html.dark footer { border-color: transparent !important; }
 html.dark header { border-color: transparent !important; }
 
-/* .dark-hide — elements that must be hidden in BOTH themes:
-   · gradient-fade divs that blended purple sections into white neighbours
-     (sections are now transparent so the fades serve no purpose and would
-     show as white-to-transparent bands on a light page)
-   · blur-2xl decorative blobs whose parent has overflow-hidden — the clip
-     at the section boundary creates rectangular corner artefacts in any theme */
-.dark-hide {
-  display: none !important;
-}
+.dark-hide { display: none !important; }
+html.dark .dark-bg-none { background: transparent !important; }
 
-/* Elements whose fill only works on light backgrounds
-   (e.g. bg-indigo-tint = #EEF2FF is too bright on #0D0D1A dark background) */
-html.dark .dark-bg-none {
-  background: transparent !important;
-}
-
-/* ── Dark-mode variant safety ─────────────────────────────────────────────────
-   Tailwind v4 places utilities in @layer utilities. This file is unlayered,
-   so these rules always beat any Tailwind utility regardless of output order.
-   Covers every dark: class actively used in formerly-purple sections. */
+/* ── Dark-mode variant safety ─────────────────────────────────────────────── */
 html.dark .dark\:text-white           { color: #ffffff !important; }
 html.dark .dark\:text-white\/70       { color: rgba(255,255,255,.70) !important; }
 html.dark .dark\:text-white\/75       { color: rgba(255,255,255,.75) !important; }
@@ -122,15 +88,15 @@ html.dark .dark\:stroke-white         { stroke: #ffffff !important; }
 html.dark .dark\:bg-white             { background-color: #ffffff !important; }
 html.dark .dark\:bg-white\/10         { background-color: rgba(255,255,255,.10) !important; }
 html.dark .dark\:text-indigo          { color: var(--color-indigo) !important; }
-html.dark .dark\:text-indigo-tint\/60 { color: rgba(238,242,255,.60) !important; }
+html.dark .dark\:text-indigo-tint\/60 { color: rgba(235,241,255,.60) !important; }
 
-/* Base */
+/* ── Base ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: auto; }
 
 body {
-  background-color: var(--color-surface);
+  background-color: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1rem;
@@ -150,55 +116,60 @@ body {
   }
 }
 
-/* Focus visible */
+/* Focus visible — 2px accent ring per DESIGN.md §7 */
 :focus-visible {
-  outline: 2px solid var(--color-indigo);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Typography scale */
+/* ── Typography scale — DESIGN.md §4 ─────────────────────────────────────── */
 .text-display {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+  font-weight: 580;
+  line-height: 1.02;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .text-h2 {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 580;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .text-h3 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .text-body {
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  line-height: 1.7;
-  max-width: 70ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  max-width: 68ch;
 }
 
 .text-label {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   line-height: 1.4;
+  letter-spacing: 0.04em;
 }
 
-/* NX Monogram */
+/* NX Monogram — Fraunces italic */
 .nx-monogram {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-display), Georgia, serif;
   font-style: italic;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-/* Scroll-reveal animation */
+/* ── Scroll-reveal animation ──────────────────────────────────────────────── */
 [data-reveal] {
   opacity: 0;
   transform: translateY(28px);

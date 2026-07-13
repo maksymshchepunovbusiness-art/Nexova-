@@ -1,29 +1,27 @@
 import type { Metadata } from 'next';
-import { Inter, Cormorant_Garamond } from 'next/font/google';
+import { Fraunces, Instrument_Sans } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import DarkPageGlow from '@/components/layout/DarkPageGlow';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import SmoothScrollProvider from '@/components/providers/smooth-scroll';
 import PageScrollBlur from '@/components/layout/PageScrollBlur';
 import '../globals.css';
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-inter',
+  variable: '--font-instrument-sans',
   display: 'swap',
 });
 
-const cormorant = Cormorant_Garamond({
+const fraunces = Fraunces({
   subsets: ['latin', 'latin-ext'],
-  style: ['italic'],
-  weight: ['600'],
-  variable: '--font-cormorant',
+  variable: '--font-fraunces',
   display: 'swap',
+  axes: ['SOFT', 'opsz', 'WONK'],
 });
 
 export async function generateMetadata({
@@ -79,13 +77,12 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${cormorant.variable} min-h-full`}
+      className={`${instrumentSans.variable} ${fraunces.variable} min-h-full`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SmoothScrollProvider>
-            <DarkPageGlow />
             <PageScrollBlur />
             <NextIntlClientProvider messages={messages}>
               <Header locale={locale} />

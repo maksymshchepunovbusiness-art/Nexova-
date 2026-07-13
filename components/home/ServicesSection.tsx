@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
@@ -105,7 +105,7 @@ export default function ServicesSection() {
                   {pkg.featured && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
                       <span className="inline-flex items-center gap-1 bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg">
-                        в… Najpopularniejszy
+                      ★ Najpopularniejszy
                       </span>
                     </div>
                   )}
@@ -160,7 +160,7 @@ export default function ServicesSection() {
                     className="flex gap-5 p-6 rounded-[14px] border border-border bg-surface hover:shadow-sm hover:border-indigo/20 transition-all duration-200"
                   >
                     <div className="shrink-0 w-11 h-11 rounded-xl bg-indigo/10 flex items-center justify-center">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4338CA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B63FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         {i === 0
                           ? <line x1="12" y1="8" x2="12" y2="16" />
