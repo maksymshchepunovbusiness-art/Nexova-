@@ -20,6 +20,7 @@ export default function HomePage() {
       <HomeCursorEffect />
       <HeroSection
         headline={t('hero.h1')}
+        h1Accents={t('hero.h1Accents')}
         sub={t('hero.sub')}
         ctaPrimary={t('hero.ctaPrimary')}
         ctaSecondary={t('hero.ctaSecondary')}

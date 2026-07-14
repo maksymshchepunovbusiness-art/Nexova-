@@ -23,16 +23,16 @@
   },
   "home": {
     "hero": {
-      "h1": "Jakość agencji. Szybkość i cena jednej osoby.",
-      "sub": "Profesjonalna strona dla Twojego biznesu: szybko, uczciwie i bez agencyjnych cenników. Rozmawiasz bezpośrednio z osobą, która ją tworzy.",
+      "h1": "Jakość agencji. Cena jednej osoby.",
+      "h1Accents": "agencji.|jednej|osoby.",
+      "sub": "Strona dla Twojej firmy w 2–3 tygodnie. Rozmawiasz bezpośrednio z osobą, która ją projektuje i koduje.",
       "ctaPrimary": "Zamów bezpłatną wycenę",
       "ctaSecondary": "Zobacz pakiety i ceny"
     },
     "trust": {
-      "item1": "Gwarancja naprawy błędów",
-      "item2": "Bezpośredni kontakt z wykonawcą",
-      "item3": "Bez ukrytych kosztów",
-      "item4": "Strony dla firm w Polsce i Czechach"
+      "item1": "30 dni gwarancji na błędy",
+      "item2": "Kontakt zawsze z wykonawcą",
+      "item3": "Stała cena z wyceny"
     },
     "problem": {
       "h2": "Twoi klienci najpierw sprawdzają Cię w internecie.",
@@ -42,6 +42,7 @@
     },
     "comparison": {
       "h2": "Dlaczego Nexova, a nie tańszy albo droższy wybór",
+      "intro": "Tani freelancer znika, agencja liczy jak korporacja. Nexova to trzecia droga.",
       "col": {
         "concern": "Co Cię martwi",
         "freelancer": "Tani freelancer",
@@ -76,7 +77,7 @@
         "bugs": {
           "concern": "\"Co, jeśli coś się zepsuje?\"",
           "freelancer": "To już Twój problem",
-          "nexova": "Gwarancja: znajdziemy błąd i naprawimy go za darmo",
+          "nexova": "Gwarancja: znajdę błąd i naprawię go za darmo",
           "agency": "Naprawią, ale doliczą do rachunku"
         },
         "understanding": {
@@ -94,7 +95,7 @@
         "start": {
           "name": "Start",
           "subtitle": "landing / jedna strona",
-          "desc": "Jedna strona, która buduje zaufanie i zbiera kontakty. Idealna na początek.",
+          "desc": "Jedna strona, która zbiera zapytania od klientów. Dobra na start.",
           "price": "od 1 500 zł"
         },
         "business": {
@@ -146,8 +147,8 @@
       "body": "Bez pośredników i call center. Prowadzę Twój projekt osobiście, od pierwszej rozmowy po start i wsparcie. Dzięki temu pracuję szybko, a Ty zawsze wiesz, z kim masz do czynienia."
     },
     "guarantee": {
-      "h2": "Znajdziemy błąd i naprawimy go za darmo.",
-      "body": "Przez 30 dni od startu naprawiam zgłoszone usterki bez dodatkowych kosztów. Bo strona ma działać, a nie tylko ładnie wyglądać."
+      "h2": "Znajdę błąd i naprawię go za darmo.",
+      "body": "Przez 30 dni od startu naprawiam zgłoszone usterki bez dodatkowych kosztów. Strona ma działać, nie tylko dobrze wyglądać."
     },
     "faq": {
       "h2": "Pytania i odpowiedzi",
@@ -160,8 +161,8 @@
       }
     },
     "finalCta": {
-      "h2": "Gotowy na stronę, która przyciąga klientów?",
-      "body": "Napisz, a przygotuję bezpłatną wycenę dla Twojego projektu.",
+      "h2": "Napisz, co robisz. Resztą zajmę się ja.",
+      "body": "W 24 godziny dostaniesz wycenę i plan działania.",
       "cta": "Zamów bezpłatną wycenę"
     }
   },

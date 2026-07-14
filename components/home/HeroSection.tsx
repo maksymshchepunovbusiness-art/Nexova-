@@ -8,6 +8,7 @@ import MockupCarousel from '@/components/ui/mockup-carousel';
 
 interface HeroSectionProps {
   headline: string;
+  h1Accents?: string; // pipe-separated exact words to accent blue; fallback: last 2 words
   sub: string;
   ctaPrimary: string;
   ctaSecondary: string;
@@ -18,6 +19,7 @@ const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
 export default function HeroSection({
   headline,
+  h1Accents,
   sub,
   ctaPrimary,
   ctaSecondary,
@@ -62,8 +64,8 @@ export default function HeroSection({
     return () => window.removeEventListener('mousemove', onMove);
   }, { scope: containerRef });
 
-  // Last 2 words of headline get the accent blue
   const words = headline.trim().split(/\s+/);
+  const accentSet = h1Accents ? new Set(h1Accents.split('|')) : null;
   const accentStart = Math.max(0, words.length - 2);
 
   return (
@@ -100,12 +102,15 @@ export default function HeroSection({
             className="text-display"
             style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
           >
-            {words.map((word, i) => (
-              <span key={i} style={i >= accentStart ? { color: 'var(--color-accent)' } : undefined}>
-                {word}
-                {i < words.length - 1 ? ' ' : ''}
-              </span>
-            ))}
+            {words.map((word, i) => {
+              const isAccent = accentSet ? accentSet.has(word) : i >= accentStart;
+              return (
+                <span key={i} style={isAccent ? { color: 'var(--color-accent)' } : undefined}>
+                  {word}
+                  {i < words.length - 1 ? ' ' : ''}
+                </span>
+              );
+            })}
           </h1>
 
           {/* Subline */}

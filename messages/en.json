@@ -23,16 +23,16 @@
   },
   "home": {
     "hero": {
-      "h1": "Agency quality. Solo speed and price.",
-      "sub": "A professional website for your business – fast, honest, and without agency price tags. You talk directly to the person building it.",
+      "h1": "Agency quality. Solo price.",
+      "h1Accents": "quality.|Solo|price.",
+      "sub": "Your business website in 2–3 weeks. You talk directly to the person who designs and codes it.",
       "ctaPrimary": "Get a Free Quote",
       "ctaSecondary": "See Packages & Pricing"
     },
     "trust": {
-      "item1": "Bug-fix guarantee",
-      "item2": "Direct contact with the maker",
-      "item3": "No hidden costs",
-      "item4": "Websites for businesses in Poland & Czechia"
+      "item1": "30-day bug-fix guarantee",
+      "item2": "Always in contact with the maker",
+      "item3": "Fixed price from the quote"
     },
     "problem": {
       "h2": "Your customers check you online first.",
@@ -42,6 +42,7 @@
     },
     "comparison": {
       "h2": "Why Nexova instead of cheaper or more expensive",
+      "intro": "A cheap freelancer disappears. An agency charges like a corporation. Nexova is the third option.",
       "col": {
         "concern": "Your concern",
         "freelancer": "Cheap freelancer",
@@ -53,7 +54,7 @@
         "timeline": { "concern": "\"When will I get my site?\"", "freelancer": "Deadlines slip", "nexova": "Weeks, not months", "agency": "Months of back-and-forth" },
         "ghosting": { "concern": "\"What if they disappear after payment?\"", "freelancer": "Happens – and often", "nexova": "I stay in touch after launch", "agency": "Won't disappear, but every step costs extra" },
         "contact": { "concern": "\"Who will I talk to?\"", "freelancer": "One person, but unreliable", "nexova": "Directly with the person building your site", "agency": "A project manager, not the maker" },
-        "bugs": { "concern": "\"What if something breaks?\"", "freelancer": "Your problem now", "nexova": "Guarantee: we find the bug – we fix it for free", "agency": "They'll fix it – and bill you for it" },
+        "bugs": { "concern": "\"What if something breaks?\"", "freelancer": "Your problem now", "nexova": "Guarantee: I'll find the bug and fix it for free", "agency": "They'll fix it – and bill you for it" },
         "understanding": { "concern": "\"Will they understand my business?\"", "freelancer": "One template for everyone", "nexova": "I personally dig into your industry", "agency": "You're one of many projects" }
       }
     },
@@ -61,7 +62,7 @@
       "h2": "Simple packages, clear pricing.",
       "oneTime": "Website build — one-time fee",
       "packages": {
-        "start": { "name": "Start", "subtitle": "landing / single page", "desc": "One page that builds trust and captures contacts. Perfect to get started.", "price": "from $375" },
+        "start": { "name": "Start", "subtitle": "landing / single page", "desc": "One page that captures enquiries from clients. Good to get started.", "price": "from $375" },
         "business": { "name": "Business", "subtitle": "multi-page website", "desc": "Full company website: content and SEO, built to attract clients.", "price": "from $875" },
         "shop": { "name": "Shop", "subtitle": "e-commerce", "desc": "Sell online: catalogue, cart, payments.", "price": "from $1,750" }
       },
@@ -101,8 +102,8 @@
       "body": "No middlemen, no call centres. I run your project personally, from the first conversation through launch and ongoing support. That's how I stay fast and you always know who you're dealing with."
     },
     "guarantee": {
-      "h2": "We find the bug – we fix it for free.",
-      "body": "For 30 days after launch I fix reported issues at no extra cost. Because a website should work, not just look good."
+      "h2": "I'll find the bug and fix it for free.",
+      "body": "For 30 days after launch I fix reported issues at no extra cost. A website should work, not just look good."
     },
     "faq": {
       "h2": "FAQ",
@@ -115,8 +116,8 @@
       }
     },
     "finalCta": {
-      "h2": "Ready for a website that brings in clients?",
-      "body": "Get in touch – I'll prepare a free quote for your business.",
+      "h2": "Tell me what you do. I'll handle the rest.",
+      "body": "You'll have a quote and a plan within 24 hours.",
       "cta": "Get a Free Quote"
     }
   },

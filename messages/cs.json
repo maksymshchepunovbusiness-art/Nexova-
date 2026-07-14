@@ -24,16 +24,16 @@
   },
   "home": {
     "hero": {
-      "h1": "Kvalita agentury. Rychlost a cena jednoho člověka.",
-      "sub": "Profesionální web pro vaše podnikání – rychle, poctivě a bez agenturních ceníků. Komunikujete přímo s osobou, která váš web tvoří.",
+      "h1": "Kvalita agentury. Cena jednoho člověka.",
+      "h1Accents": "agentury.|jednoho|člověka.",
+      "sub": "Web pro vaši firmu za 2–3 týdny. Komunikujete přímo s osobou, která ho navrhuje a kóduje.",
       "ctaPrimary": "Objednat bezplatnou nabídku",
       "ctaSecondary": "Zobrazit balíčky a ceny"
     },
     "trust": {
-      "item1": "Záruka opravy chyb",
-      "item2": "Přímý kontakt s realizátorem",
-      "item3": "Bez skrytých nákladů",
-      "item4": "Weby pro firmy v Polsku a Česku"
+      "item1": "30 dní záruka na chyby",
+      "item2": "Vždy v kontaktu s realizátorem",
+      "item3": "Pevná cena z nabídky"
     },
     "problem": {
       "h2": "Vaši zákazníci vás nejdříve hledají na internetu.",
@@ -43,6 +43,7 @@
     },
     "comparison": {
       "h2": "Proč Nexova, a ne levnější nebo dražší volba",
+      "intro": "Levný freelancer zmizí, agentura účtuje jako korporace. Nexova je třetí cesta.",
       "col": {
         "concern": "Co vás trápí",
         "freelancer": "Levný freelancer",
@@ -102,8 +103,8 @@
       "body": "Bez prostředníků a call centra. Vedu váš projekt osobně, od první schůzky po spuštění a podporu. Díky tomu pracuji rychle a vy vždy víte, s kým jednáte."
     },
     "guarantee": {
-      "h2": "Najdeme chybu – opravíme zdarma.",
-      "body": "Po dobu 30 dní od spuštění opravuji nahlášené závady bez dalších nákladů. Protože web má fungovat, nejen hezky vypadat."
+      "h2": "Najdu chybu a opravím ji zdarma.",
+      "body": "Po dobu 30 dní od spuštění opravuji nahlášené závady bez dalších nákladů. Web má fungovat, nejen hezky vypadat."
     },
     "faq": {
       "h2": "Časté dotazy",
@@ -116,8 +117,8 @@
       }
     },
     "finalCta": {
-      "h2": "Připraveni na web, který přitahuje zákazníky?",
-      "body": "Napište – připravím bezplatnou nabídku pro vaše podnikání.",
+      "h2": "Napište, co děláte. Zbytek zařídím já.",
+      "body": "Do 24 hodin dostanete nabídku a plán.",
       "cta": "Objednat bezplatnou nabídku"
     }
   },

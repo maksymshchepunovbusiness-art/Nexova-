@@ -25,11 +25,15 @@ export default function ComparisonTable() {
         </div>
 
         <h2
-          className="text-h2 mb-12"
+          className="text-h2 mb-4"
           style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)' }}
         >
           {t('h2')}
         </h2>
+
+        <p className="text-body mb-12" style={{ color: 'var(--color-ink-soft)' }}>
+          {t('intro')}
+        </p>
 
         {/* Table wrapper — horizontal scroll on mobile with sticky first column */}
         <div className="overflow-x-auto -mx-6 px-6">
