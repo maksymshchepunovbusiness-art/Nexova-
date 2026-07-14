@@ -39,24 +39,7 @@
   --shadow-lg: 0 8px 16px rgba(20,22,26,0.05), 0 32px 80px rgba(20,22,26,0.08);
 }
 
-/* ── Dark mode (minimal overrides — out of scope in Phase 0) ──────────────── */
-.dark,
-html.dark {
-  --color-bg:         #0D0D1A;
-  --color-surface:    #14142A;
-  --color-ink:        #EEEEF5;
-  --color-ink-soft:   #8888A0;
-  --color-border:     #2A2A45;
-  --color-line:       #2A2A45;
-  --color-surface-2:  #14142A;
-  --color-text-muted: #8888A0;
-  color-scheme: dark;
-}
-
-html.dark body {
-  background-color: var(--color-bg);
-  color: var(--color-ink);
-}
+/* Single light theme — no dark mode overrides */
 
 /* ── No aurora/glow in the new design — page-glow is inert ───────────────── */
 .page-glow {
@@ -73,23 +56,6 @@ footer {
   background: transparent;
 }
 
-/* Dark-mode border cleanup */
-html.dark footer { border-color: transparent !important; }
-html.dark header { border-color: transparent !important; }
-
-.dark-hide { display: none !important; }
-html.dark .dark-bg-none { background: transparent !important; }
-
-/* ── Dark-mode variant safety ─────────────────────────────────────────────── */
-html.dark .dark\:text-white           { color: #ffffff !important; }
-html.dark .dark\:text-white\/70       { color: rgba(255,255,255,.70) !important; }
-html.dark .dark\:text-white\/75       { color: rgba(255,255,255,.75) !important; }
-html.dark .dark\:text-white\/80       { color: rgba(255,255,255,.80) !important; }
-html.dark .dark\:stroke-white         { stroke: #ffffff !important; }
-html.dark .dark\:bg-white             { background-color: #ffffff !important; }
-html.dark .dark\:bg-white\/10         { background-color: rgba(255,255,255,.10) !important; }
-html.dark .dark\:text-indigo          { color: var(--color-indigo) !important; }
-html.dark .dark\:text-indigo-tint\/60 { color: rgba(235,241,255,.60) !important; }
 
 /* ── Base ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }

@@ -48,8 +48,6 @@ export default function SiteMockup() {
 
         {/* Hero */}
         <div className="relative bg-gradient-to-br from-[#0F0B2E] via-[#1E1B4B] to-[#312E81] px-8 py-12 flex items-center gap-8">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#4338CA]/25 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-32 w-48 h-48 rounded-full bg-[#EA580C]/15 blur-2xl pointer-events-none" />
 
           <div className="flex-1 relative z-10 min-w-0">
             <div className="flex items-center gap-2 text-[#C7D2FE] text-xs mb-4 uppercase tracking-widest">

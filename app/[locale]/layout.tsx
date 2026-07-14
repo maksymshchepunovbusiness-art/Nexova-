@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { ThemeProvider } from '@/components/providers/theme-provider';
 import SmoothScrollProvider from '@/components/providers/smooth-scroll';
 import PageScrollBlur from '@/components/layout/PageScrollBlur';
 import '../globals.css';
@@ -78,19 +77,16 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${instrumentSans.variable} ${fraunces.variable} min-h-full`}
-      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SmoothScrollProvider>
-            <PageScrollBlur />
-            <NextIntlClientProvider messages={messages}>
-              <Header locale={locale} />
-              <main className="flex-1">{children}</main>
-              <Footer locale={locale} />
-            </NextIntlClientProvider>
-          </SmoothScrollProvider>
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          <PageScrollBlur />
+          <NextIntlClientProvider messages={messages}>
+            <Header locale={locale} />
+            <main className="flex-1">{children}</main>
+            <Footer locale={locale} />
+          </NextIntlClientProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

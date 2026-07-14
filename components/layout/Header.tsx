@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 interface HeaderProps {
   locale: string;
@@ -66,7 +65,6 @@ export default function Header({ locale }: HeaderProps) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
             <div className="hidden sm:block">
               <LanguageSwitcher />
             </div>
