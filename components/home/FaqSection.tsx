@@ -13,12 +13,24 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="py-24 bg-surface-2 dark:bg-transparent">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-text-muted text-center mb-4">
-          FAQ
-        </p>
-        <h2 className="text-h2 text-ink text-center mb-12">{t('h2')}</h2>
+    <section className="py-28" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <div className="mx-auto max-w-3xl px-6">
+
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 mb-10">
+          <span aria-hidden style={{ width: '1.5rem', height: '1px', backgroundColor: 'var(--color-accent)', display: 'inline-block' }} />
+          <span className="text-label uppercase tracking-widest" style={{ color: 'var(--color-ink-soft)' }}>
+            FAQ
+          </span>
+        </div>
+
+        <h2
+          className="text-h2 mb-12"
+          style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)' }}
+        >
+          {t('h2')}
+        </h2>
+
         <FaqAccordion items={items} />
       </div>
     </section>

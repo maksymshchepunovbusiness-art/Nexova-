@@ -104,8 +104,8 @@ export default function ServicesSection() {
                 >
                   {pkg.featured && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                      <span className="inline-flex items-center gap-1 bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg">
-                      ★ Najpopularniejszy
+                      <span className="inline-flex items-center gap-1 bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full">
+                        ★ Najpopularniejszy
                       </span>
                     </div>
                   )}

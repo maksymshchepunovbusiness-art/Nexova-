@@ -27,7 +27,8 @@ export default function Header({ locale }: HeaderProps) {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-40 w-full border-b border-[#E6E6EC] dark:border-transparent bg-white/90 dark:bg-[#0D0D1A]/90 backdrop-blur-md transition-colors duration-200"
+      className="sticky top-0 z-40 w-full border-b backdrop-blur-md transition-colors duration-200"
+      style={{ borderColor: 'var(--color-line)', backgroundColor: 'color-mix(in srgb, var(--color-bg) 90%, transparent)' }}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">

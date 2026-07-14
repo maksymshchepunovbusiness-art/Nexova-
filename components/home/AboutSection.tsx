@@ -6,20 +6,30 @@ export default function AboutSection() {
   const tCta = useTranslations('cta');
 
   return (
-    <section className="py-24 bg-surface dark:bg-transparent">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="py-28" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Text */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-text-muted mb-4">
-              O nas
-            </p>
-            <h2 className="text-h2 text-ink mb-6">{t('h2')}</h2>
-            <p className="text-body text-text-muted mb-8">{t('body')}</p>
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 mb-8">
+              <span aria-hidden style={{ width: '1.5rem', height: '1px', backgroundColor: 'var(--color-accent)', display: 'inline-block' }} />
+              <span className="text-label uppercase tracking-widest" style={{ color: 'var(--color-ink-soft)' }}>
+                O nas
+              </span>
+            </div>
+
+            <h2
+              className="text-h2 mb-6"
+              style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)' }}
+            >
+              {t('h2')}
+            </h2>
+            <p className="text-body mb-8" style={{ color: 'var(--color-ink-soft)' }}>{t('body')}</p>
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-[8px] bg-terracotta text-white font-medium hover:bg-terracotta/90 active:scale-[0.98] transition-all duration-200"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-[8px] bg-accent hover:bg-accent-ink text-white font-medium active:scale-[0.97] transition-all duration-150"
             >
               {tCta('quote')}
             </Link>
@@ -28,39 +38,55 @@ export default function AboutSection() {
           {/* Visual — monogram card */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-72 h-72">
-              {/* Background decorative circles — transparent in dark mode; bg-indigo-tint (#EEF2FF) is too bright on #0D0D1A */}
-              <div aria-hidden className="dark-bg-none absolute inset-0 rounded-full bg-indigo-tint border-2 border-indigo/10" />
-              <div aria-hidden className="dark-bg-none absolute inset-6 rounded-full bg-indigo-tint/50 border border-indigo/10" />
+              {/* Background decorative circles */}
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-full"
+                style={{ backgroundColor: 'var(--color-indigo-tint)', border: '2px solid rgba(43,99,250,0.08)' }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-6 rounded-full"
+                style={{ backgroundColor: 'rgba(235,241,255,0.5)', border: '1px solid rgba(43,99,250,0.06)' }}
+              />
 
               {/* Center monogram */}
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span
-                  className="nx-monogram text-7xl text-indigo leading-none select-none"
-                  style={{ fontFamily: 'var(--font-serif), Georgia, serif', fontStyle: 'italic', fontWeight: 600 }}
+                  className="nx-monogram text-7xl leading-none select-none"
+                  style={{ color: 'var(--color-accent)' }}
                 >
                   NX
                 </span>
-                <span className="text-sm font-semibold text-text-muted mt-2 tracking-wider uppercase">Nexova</span>
+                <span className="text-label font-semibold mt-2 tracking-wider uppercase" style={{ color: 'var(--color-ink-soft)' }}>
+                  Nexova
+                </span>
               </div>
 
               {/* Floating badge — guarantee */}
-              <div className="absolute -bottom-4 -right-4 bg-surface border border-border rounded-[10px] shadow-md px-4 py-3">
+              <div
+                className="absolute -bottom-4 -right-4 rounded-[10px] shadow-md px-4 py-3"
+                style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-line)' }}
+              >
                 <div className="flex items-center gap-2">
-                  <span className="text-success text-lg">✓</span>
+                  <span style={{ color: 'var(--color-success)', fontSize: '1.125rem' }}>✓</span>
                   <div>
-                    <p className="text-xs font-semibold text-ink leading-tight">Gwarancja</p>
-                    <p className="text-[10px] text-text-muted">30 dni napraw błędów</p>
+                    <p className="text-xs font-semibold" style={{ color: 'var(--color-ink)' }}>Gwarancja</p>
+                    <p className="text-[10px]" style={{ color: 'var(--color-ink-soft)' }}>30 dni napraw błędów</p>
                   </div>
                 </div>
               </div>
 
               {/* Floating badge — direct contact */}
-              <div className="absolute -top-4 -left-4 bg-surface border border-border rounded-[10px] shadow-md px-4 py-3">
+              <div
+                className="absolute -top-4 -left-4 rounded-[10px] shadow-md px-4 py-3"
+                style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-line)' }}
+              >
                 <div className="flex items-center gap-2">
-                  <span className="text-indigo text-lg">◎</span>
+                  <span style={{ color: 'var(--color-accent)', fontSize: '1.125rem' }}>◎</span>
                   <div>
-                    <p className="text-xs font-semibold text-ink leading-tight">Bezpośredni kontakt</p>
-                    <p className="text-[10px] text-text-muted">Zawsze z wykonawcą</p>
+                    <p className="text-xs font-semibold" style={{ color: 'var(--color-ink)' }}>Bezpośredni kontakt</p>
+                    <p className="text-[10px]" style={{ color: 'var(--color-ink-soft)' }}>Zawsze z wykonawcą</p>
                   </div>
                 </div>
               </div>

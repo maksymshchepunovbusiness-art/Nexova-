@@ -6,8 +6,6 @@ import { useGSAP } from '@gsap/react';
 import { Link } from '@/i18n/navigation';
 import MockupCarousel from '@/components/ui/mockup-carousel';
 
-gsap.registerPlugin();
-
 interface HeroSectionProps {
   headline: string;
   sub: string;
@@ -28,25 +26,21 @@ export default function HeroSection({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      const els = gsap.utils.toArray<HTMLElement>('[data-hero]');
-      if (!els.length) return;
+    const els = gsap.utils.toArray<HTMLElement>('[data-hero]');
+    if (!els.length) return;
 
-      // Content must be visible by default — GSAP sets opacity:0 via JS immediately
-      gsap.fromTo(
-        els,
-        { y: 12, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: EASE,
-          stagger: 0.08,
-          clearProps: 'transform,opacity',
-        }
-      );
-    }, containerRef);
-    return () => ctx.revert();
+    gsap.fromTo(
+      els,
+      { y: 12, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: EASE,
+        stagger: 0.08,
+        clearProps: 'transform,opacity',
+      }
+    );
   }, { scope: containerRef });
 
   // Last 2 words of headline get the accent blue
@@ -86,23 +80,17 @@ export default function HeroSection({
           <div data-hero className="flex flex-wrap gap-4">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-[8px] font-semibold text-[15px] text-white transition-all duration-150"
-              style={{ backgroundColor: 'var(--color-accent)', ['--hover-bg' as string]: 'var(--color-accent-ink)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent-ink)')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent)')}
+              className="inline-flex items-center justify-center px-7 py-3.5 rounded-[8px] bg-accent hover:bg-accent-ink text-white font-semibold text-[15px] active:scale-[0.97] transition-all duration-150"
             >
               {ctaPrimary}
             </Link>
             <Link
               href="/uslugi"
-              className="inline-flex items-center gap-1.5 px-2 py-3.5 font-medium text-[15px] transition-all duration-150"
-              style={{ color: 'var(--color-ink-soft)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-ink-soft)')}
+              className="inline-flex items-center gap-1.5 px-2 py-3.5 text-ink-soft hover:text-accent font-medium text-[15px] transition-all duration-150"
             >
               {ctaSecondary}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
           </div>

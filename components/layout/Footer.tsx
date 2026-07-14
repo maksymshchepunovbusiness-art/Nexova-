@@ -21,7 +21,7 @@ export default function Footer({ locale: _locale }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#E6E6EC] dark:border-transparent bg-[#F7F7FA] dark:bg-transparent transition-colors duration-200">
+    <footer style={{ borderTop: '1px solid var(--color-line)', backgroundColor: 'var(--color-surface)' }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
