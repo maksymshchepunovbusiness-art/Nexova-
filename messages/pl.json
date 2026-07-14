@@ -36,8 +36,9 @@
     },
     "problem": {
       "h2": "Twoi klienci najpierw sprawdzają Cię w internecie.",
-      "body": "Słaba strona, albo jej zupełny brak, to klienci trafiający do konkurencji. Wybór bywa trudny: tani freelancer, który znika, albo agencja, która każe płacić jak za korporację. Nexova to trzecia droga.",
-      "keywords": "klienci|konkurencji|Nexova"
+      "body": "Wchodzą, widzą Twoją stronę, porównują ją z konkurencją i wybierają. Całość trwa kilkanaście sekund.",
+      "keywords": "widzą|porównują|wybierają",
+      "punchline": "Pytanie tylko, kogo."
     },
     "comparison": {
       "h2": "Dlaczego Nexova, a nie tańszy albo droższy wybór",
