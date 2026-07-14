@@ -98,8 +98,8 @@ export default function ServicesSection() {
                   key={pkg.key}
                   className={`relative flex flex-col rounded-2xl transition-all duration-200 ${
                     pkg.featured
-                      ? 'bg-indigo text-white shadow-2xl shadow-indigo/30 ring-2 ring-indigo/60 p-9 sm:-translate-y-4 z-10'
-                      : 'bg-surface border border-border hover:shadow-md p-8'
+                      ? 'bg-indigo text-white shadow-2xl shadow-indigo/30 ring-2 ring-indigo/60 p-9 sm:-translate-y-4 z-10 hover:-translate-y-5'
+                      : 'bg-surface border border-border hover:shadow-md hover:-translate-y-1 p-8'
                   }`}
                 >
                   {pkg.featured && (
@@ -157,7 +157,7 @@ export default function ServicesSection() {
                 {careOptions.map((care, i) => (
                   <div
                     key={care.key}
-                    className="flex gap-5 p-6 rounded-[14px] border border-border bg-surface hover:shadow-sm hover:border-indigo/20 transition-all duration-200"
+                    className="flex gap-5 p-6 rounded-[14px] border border-border bg-surface hover:shadow-sm hover:border-indigo/20 hover:-translate-y-0.5 transition-all duration-200"
                   >
                     <div className="shrink-0 w-11 h-11 rounded-xl bg-indigo/10 flex items-center justify-center">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B63FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

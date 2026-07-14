@@ -24,23 +24,42 @@ export default function HeroSection({
   trustItems,
 }: HeroSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const markARef = useRef<HTMLSpanElement>(null);
+  const markBRef = useRef<HTMLSpanElement>(null);
 
   useGSAP(() => {
-    const els = gsap.utils.toArray<HTMLElement>('[data-hero]');
-    if (!els.length) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    gsap.fromTo(
-      els,
-      { y: 12, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: EASE,
-        stagger: 0.08,
-        clearProps: 'transform,opacity',
-      }
-    );
+    const els = gsap.utils.toArray<HTMLElement>('[data-hero]');
+    if (els.length) {
+      gsap.fromTo(
+        els,
+        { y: 12, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: EASE,
+          stagger: 0.08,
+          clearProps: 'transform,opacity',
+        }
+      );
+    }
+
+    if (prefersReduced || !markARef.current || !markBRef.current) return;
+
+    const qtA = gsap.quickTo(markARef.current, 'x', { duration: 1.4, ease: 'power2.out' });
+    const qtB = gsap.quickTo(markBRef.current, 'x', { duration: 1.9, ease: 'power2.out' });
+
+    const onMove = (e: MouseEvent) => {
+      const cx = window.innerWidth / 2;
+      const dx = (e.clientX - cx) / cx; // -1 → 1
+      qtA(dx * 28);
+      qtB(dx * -18);
+    };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => window.removeEventListener('mousemove', onMove);
   }, { scope: containerRef });
 
   // Last 2 words of headline get the accent blue
@@ -48,10 +67,28 @@ export default function HeroSection({
   const accentStart = Math.max(0, words.length - 2);
 
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden">
+      {/* NX drift marks — decorative, mouse-parallax */}
+      <span
+        ref={markARef}
+        aria-hidden
+        className="nx-monogram pointer-events-none select-none absolute -top-10 -left-8 text-[22rem] leading-none"
+        style={{ color: 'var(--color-accent)', opacity: 0.03, willChange: 'transform' }}
+      >
+        NX
+      </span>
+      <span
+        ref={markBRef}
+        aria-hidden
+        className="nx-monogram pointer-events-none select-none absolute -bottom-16 right-0 text-[16rem] leading-none"
+        style={{ color: 'var(--color-accent)', opacity: 0.025, willChange: 'transform' }}
+      >
+        NX
+      </span>
+
       <div
         ref={containerRef}
-        className="mx-auto max-w-7xl w-full px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+        className="relative mx-auto max-w-7xl w-full px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
       >
 
         {/* ── Left column — copy ─────────────────────────────────────────── */}
@@ -130,3 +167,4 @@ export default function HeroSection({
     </section>
   );
 }
+

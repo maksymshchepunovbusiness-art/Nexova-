@@ -63,13 +63,14 @@ html.dark body {
   display: none !important;
 }
 
-/* Every <section> transparent so body bg shows through */
+/* Every <section> transparent so body bg shows through
+   (no !important — inline backgroundColor on ink-block / surface sections must win) */
 section {
-  background: transparent !important;
+  background: transparent;
 }
 
 footer {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Dark-mode border cleanup */
