@@ -34,11 +34,11 @@ function GlobeIcon() {
   );
 }
 
-const icons = [ShieldIcon, PersonIcon, LockIcon, GlobeIcon];
+const icons = [ShieldIcon, PersonIcon, LockIcon];
 
 export default function TrustStrip() {
   const t = useTranslations('home.trust');
-  const items = [t('item1'), t('item2'), t('item3'), t('item4')];
+  const items = [t('item1'), t('item2'), t('item3')];
 
   return (
     <section className="bg-surface dark:bg-transparent">
