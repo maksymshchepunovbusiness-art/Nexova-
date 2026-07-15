@@ -4,7 +4,8 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Link } from '@/i18n/navigation';
-import MockupCarousel from '@/components/ui/mockup-carousel';
+import AutoProDevice from '@/components/ui/auto-pro-device';
+import { MarkerSwipe } from '@/components/ui/marker-swipe';
 
 interface HeroSectionProps {
   headline: string;
@@ -66,7 +67,11 @@ export default function HeroSection({
 
   const words = headline.trim().split(/\s+/);
   const accentSet = h1Accents ? new Set(h1Accents.split('|')) : null;
-  const accentStart = Math.max(0, words.length - 2);
+
+  // Last 2 words get the marker swipe (they are always accent words)
+  const markerStart = words.length - 2;
+  const preWords = words.slice(0, markerStart);
+  const markerWords = words.slice(markerStart);
 
   return (
     <section className="relative overflow-hidden">
@@ -96,21 +101,35 @@ export default function HeroSection({
         {/* ── Left column — copy ─────────────────────────────────────────── */}
         <div className="flex flex-col gap-8 lg:gap-10">
 
-          {/* H1 — Fraunces display size, blue on last 2 words */}
+          {/* H1 — Fraunces display size, blue on accent words, marker on last 2 */}
           <h1
             data-hero
             className="text-display"
             style={{ fontFamily: 'var(--font-display), Georgia, serif' }}
           >
-            {words.map((word, i) => {
-              const isAccent = accentSet ? accentSet.has(word) : i >= accentStart;
+            {preWords.map((word, i) => {
+              const isAccent = accentSet ? accentSet.has(word) : false;
               return (
                 <span key={i} style={isAccent ? { color: 'var(--color-accent)' } : undefined}>
-                  {word}
-                  {i < words.length - 1 ? ' ' : ''}
+                  {word}{' '}
                 </span>
               );
             })}
+            {/* Marker group — last 2 words wrapped for the swipe SVG */}
+            <span
+              className="relative"
+              style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
+            >
+              {markerWords.map((word, j) => {
+                const isAccent = accentSet ? accentSet.has(word) : true;
+                return (
+                  <span key={j} style={isAccent ? { color: 'var(--color-accent)' } : undefined}>
+                    {word}{j < markerWords.length - 1 ? ' ' : ''}
+                  </span>
+                );
+              })}
+              <MarkerSwipe delay={0.55} />
+            </span>
           </h1>
 
           {/* Subline */}
@@ -137,7 +156,7 @@ export default function HeroSection({
             </Link>
           </div>
 
-          {/* Trust row — hairline separated, small, ink-soft */}
+          {/* Trust row */}
           <div data-hero className="flex flex-wrap gap-x-6 gap-y-2 pt-2 border-t border-[var(--color-line)]">
             {trustItems.map((item) => (
               <span
@@ -154,17 +173,17 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* ── Right column — 3D device mockup ───────────────────────────── */}
+        {/* ── Right column — 3D AutoPro device ──────────────────────────── */}
         <div
           data-hero
           className="hidden lg:block"
           style={{ perspective: '1200px' }}
         >
           <div
-            className="rounded-xl overflow-hidden shadow-2xl"
-            style={{ transform: 'rotateY(-8deg) rotateX(4deg)', transformStyle: 'preserve-3d' }}
+            className="shadow-2xl"
+            style={{ transform: 'rotateY(-8deg) rotateX(4deg)', transformStyle: 'preserve-3d', borderRadius: 12 }}
           >
-            <MockupCarousel />
+            <AutoProDevice />
           </div>
         </div>
 
@@ -172,4 +191,3 @@ export default function HeroSection({
     </section>
   );
 }
-
