@@ -5,6 +5,7 @@ import TrustStrip        from '@/components/home/TrustStrip';
 import ProblemSection    from '@/components/home/ProblemSection';
 import ComparisonTable   from '@/components/home/ComparisonTable';
 import ServicesSection   from '@/components/home/ServicesSection';
+import QuoteCalculator   from '@/components/home/QuoteCalculator';
 import ProcessSection    from '@/components/home/ProcessSection';
 import PortfolioSection  from '@/components/home/PortfolioSection';
 import AboutSection      from '@/components/home/AboutSection';
@@ -30,6 +31,7 @@ export default function HomePage() {
       <ProblemSection />
       <ComparisonTable />
       <ServicesSection />
+      <QuoteCalculator />
       <ProcessSection />
       <PortfolioSection />
       <AboutSection />

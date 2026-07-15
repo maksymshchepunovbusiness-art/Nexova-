@@ -164,6 +164,32 @@
       "h2": "Napisz, co robisz. Resztą zajmę się ja.",
       "body": "W 24 godziny dostaniesz wycenę i plan działania.",
       "cta": "Zamów bezpłatną wycenę"
+    },
+    "calculator": {
+      "eyebrow": "Wycena w 60 sekund",
+      "h2": "Ile może kosztować Twoja strona?",
+      "step1": "Jaki typ strony potrzebujesz?",
+      "step2": "Ile podstron?",
+      "step3": "Opieka techniczna?",
+      "siteStart": "Landing / wizytówka",
+      "siteStartSub": "1 strona, zbiórka kontaktów",
+      "siteBusiness": "Strona firmowa",
+      "siteBusinessSub": "Kilka podstron, treści, SEO",
+      "siteSklep": "Sklep internetowy",
+      "siteSklep2Sub": "Katalog, koszyk, płatności",
+      "pages12": "1–2 strony",
+      "pages35": "3–5 stron",
+      "pages610": "6–10 stron",
+      "pages10p": "10+ stron",
+      "careNone": "Bez opieki",
+      "careBasic": "Care Basic — hosting + serwis",
+      "carePlus": "Care Plus — + treści i SEO",
+      "resultPrefix": "Szacunkowy koszt jednorazowy:",
+      "resultRange": "od {min} do {max} zł",
+      "resultCare": " + {price} zł/mies. opieka",
+      "resultSub": "Albo w abonamencie od {subPrice} zł/mies. (opieka w cenie)",
+      "cta": "Chcę taką stronę",
+      "ctaContext": "Kalkulator: strona {site}, {pages}, {care}"
     }
   },
   "pricing": {

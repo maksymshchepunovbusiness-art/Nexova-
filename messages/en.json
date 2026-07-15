@@ -119,6 +119,32 @@
       "h2": "Tell me what you do. I'll handle the rest.",
       "body": "You'll have a quote and a plan within 24 hours.",
       "cta": "Get a Free Quote"
+    },
+    "calculator": {
+      "eyebrow": "Quote in 60 seconds",
+      "h2": "How much could your site cost?",
+      "step1": "What type of site do you need?",
+      "step2": "How many pages?",
+      "step3": "Technical care?",
+      "siteStart": "Landing / brochure",
+      "siteStartSub": "1 page, lead collection",
+      "siteBusiness": "Company website",
+      "siteBusinessSub": "Several pages, content, SEO",
+      "siteSklep": "Online store",
+      "siteSklep2Sub": "Catalogue, cart, payments",
+      "pages12": "1–2 pages",
+      "pages35": "3–5 pages",
+      "pages610": "6–10 pages",
+      "pages10p": "10+ pages",
+      "careNone": "No care plan",
+      "careBasic": "Care Basic — hosting + maintenance",
+      "carePlus": "Care Plus — + content & SEO",
+      "resultPrefix": "Estimated one-time cost:",
+      "resultRange": "${min}–${max}",
+      "resultCare": " + ${price}/mo. care",
+      "resultSub": "Or from ${subPrice}/mo. in subscription (care included)",
+      "cta": "I want this site",
+      "ctaContext": "Calculator: {site} site, {pages}, {care}"
     }
   },
   "pricing": {

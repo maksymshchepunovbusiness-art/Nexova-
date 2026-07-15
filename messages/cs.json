@@ -120,6 +120,32 @@
       "h2": "Napište, co děláte. Zbytek zařídím já.",
       "body": "Do 24 hodin dostanete nabídku a plán.",
       "cta": "Objednat bezplatnou nabídku"
+    },
+    "calculator": {
+      "eyebrow": "Nabídka za 60 sekund",
+      "h2": "Kolik by mohl stát váš web?",
+      "step1": "Jaký typ webu potřebujete?",
+      "step2": "Kolik stránek?",
+      "step3": "Technická péče?",
+      "siteStart": "Landing / vizitka",
+      "siteStartSub": "1 stránka, sběr kontaktů",
+      "siteBusiness": "Firemní web",
+      "siteBusinessSub": "Více stránek, obsah, SEO",
+      "siteSklep": "E-shop",
+      "siteSklep2Sub": "Katalog, košík, platby",
+      "pages12": "1–2 stránky",
+      "pages35": "3–5 stránek",
+      "pages610": "6–10 stránek",
+      "pages10p": "10+ stránek",
+      "careNone": "Bez péče",
+      "careBasic": "Care Basic — hosting + servis",
+      "carePlus": "Care Plus — + obsah a SEO",
+      "resultPrefix": "Odhadovaná jednorázová cena:",
+      "resultRange": "od {min} do {max} Kč",
+      "resultCare": " + {price} Kč/měs. péče",
+      "resultSub": "Nebo od {subPrice} Kč/měs. v předplatném (péče v ceně)",
+      "cta": "Chci takový web",
+      "ctaContext": "Kalkulačka: web {site}, {pages}, {care}"
     }
   },
   "pricing": {
