@@ -54,8 +54,24 @@
 .autopro-scroll:hover {
   animation-play-state: paused;
 }
+
+/* ── Portfolio DemoFrame hover-scroll (6s, paused until hover) ─────────── */
+@keyframes demo-frame-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.demo-frame-content {
+  animation: demo-frame-scroll 6s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+.demo-frame:hover .demo-frame-content {
+  animation-play-state: running;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .autopro-scroll { animation: none; }
+  .autopro-scroll,
+  .demo-frame-content { animation: none; }
 }
 
 /* ── No aurora/glow in the new design — page-glow is inert ───────────────── */
