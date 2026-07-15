@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { InkLineSegment } from '@/components/ui/ink-line-segment';
 
 export default function ProcessSection() {
   const t = useTranslations('home.process');
@@ -11,7 +12,8 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section className="py-28">
+    <section className="py-28 relative">
+      <InkLineSegment startPct="top 80%" endPct="bottom 25%" />
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Eyebrow */}

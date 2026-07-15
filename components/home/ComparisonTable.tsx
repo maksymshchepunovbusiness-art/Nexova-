@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { InkLineSegment } from '@/components/ui/ink-line-segment';
 
 export default function ComparisonTable() {
   const t = useTranslations('home.comparison');
@@ -13,7 +14,8 @@ export default function ComparisonTable() {
   ];
 
   return (
-    <section className="py-28">
+    <section className="py-28 relative">
+      <InkLineSegment />
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Eyebrow */}

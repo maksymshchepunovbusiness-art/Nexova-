@@ -1,11 +1,13 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { InkLineSegment } from '@/components/ui/ink-line-segment';
 
 export default function FinalCtaSection() {
   const t = useTranslations('home.finalCta');
 
   return (
     <section className="py-28 relative" style={{ borderTop: '1px solid var(--color-line)' }}>
+      <InkLineSegment startPct="top 90%" endPct="bottom 10%" />
       <div className="mx-auto max-w-2xl px-6 text-center">
         <h2
           className="text-h2 mb-6"

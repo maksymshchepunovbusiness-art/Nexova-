@@ -1,12 +1,14 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { InkLineSegment } from '@/components/ui/ink-line-segment';
 
 export default function AboutSection() {
   const t = useTranslations('home.about');
   const tCta = useTranslations('cta');
 
   return (
-    <section className="py-28" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section className="py-28 relative" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <InkLineSegment />
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
