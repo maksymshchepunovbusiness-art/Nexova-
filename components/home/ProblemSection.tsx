@@ -21,10 +21,11 @@ function cleanWord(w: string): string {
 export default function ProblemSection() {
   const t = useTranslations('home.problem');
 
-  const sectionRef  = useRef<HTMLElement>(null);
-  const paraRef     = useRef<HTMLParagraphElement>(null);
-  const stackRef    = useRef<HTMLDivElement>(null);
-  const punchRef    = useRef<HTMLParagraphElement>(null);
+  const sectionRef     = useRef<HTMLElement>(null);
+  const paraRef        = useRef<HTMLParagraphElement>(null);
+  const stackRef       = useRef<HTMLDivElement>(null);
+  const punchRef       = useRef<HTMLParagraphElement>(null);
+  const punchMarkerRef = useRef<SVGSVGElement>(null);
 
   const body       = t('body');
   const keywords   = t('keywords').split('|');
@@ -36,8 +37,9 @@ export default function ProblemSection() {
 
     // Reduced-motion fallback: reveal everything statically, no pin
     if (prefersReduced) {
-      if (stackRef.current)  gsap.set(stackRef.current,  { autoAlpha: 1 });
-      if (punchRef.current)  gsap.set(punchRef.current,  { autoAlpha: 1, y: 0 });
+      if (stackRef.current)      gsap.set(stackRef.current,      { autoAlpha: 1 });
+      if (punchRef.current)      gsap.set(punchRef.current,      { autoAlpha: 1, y: 0 });
+      if (punchMarkerRef.current) gsap.set(punchMarkerRef.current, { scaleX: 1, rotation: -1, transformOrigin: 'left center' });
       return;
     }
 
@@ -53,6 +55,11 @@ export default function ProblemSection() {
     // (autoAlpha 0 keeps visibility:hidden which still lays out)
     gsap.set(stackRef.current!, { autoAlpha: 0 });
     gsap.set(punchEl, { autoAlpha: 0, y: 8 });
+
+    // Prime the punch marker — it inherits punchEl opacity but needs its own scaleX set
+    if (punchMarkerRef.current) {
+      gsap.set(punchMarkerRef.current, { scaleX: 0, rotation: -1, transformOrigin: 'left center' });
+    }
 
     // Capture offset: each stack word should start from its corresponding para keyword
     const offsets = Array.from(stackWordEls).map((sw, i) => {
@@ -139,6 +146,17 @@ export default function ProblemSection() {
       ease:      'power2.out',
       duration:  0.20,
     }, ASM_END);
+
+    // Marker swipe draws after punchline is visible
+    if (punchMarkerRef.current) {
+      tl.to(punchMarkerRef.current, {
+        scaleX: 1,
+        rotation: -1,
+        transformOrigin: 'left center',
+        ease: 'power2.out',
+        duration: 0.13,
+      }, ASM_END + 0.10);
+    }
 
   }, { scope: sectionRef });
 
@@ -230,19 +248,50 @@ export default function ProblemSection() {
           </div>
         </div>
 
-        {/* Punchline */}
-        <p
-          ref={punchRef}
-          className="text-body mt-8"
-          style={{
-            color:     'var(--color-ink-soft)',
-            opacity:   0,
-            transform: 'translateY(8px)',
-          }}
-          aria-hidden
-        >
-          {punchline}
-        </p>
+        {/* Punchline — last word gets a marker swipe */}
+        {(() => {
+          const punchWords = punchline.trim().split(/\s+/);
+          const lastWord = punchWords[punchWords.length - 1];
+          const restWords = punchWords.slice(0, -1).join(' ');
+          return (
+            <p
+              ref={punchRef}
+              className="text-body mt-8"
+              style={{ color: 'var(--color-ink-soft)', opacity: 0, transform: 'translateY(8px)' }}
+              aria-hidden
+            >
+              {restWords}{' '}
+              <span className="relative" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                {lastWord}
+                {/* hand-drawn marker blob — animated via timeline */}
+                <svg
+                  ref={punchMarkerRef}
+                  aria-hidden
+                  style={{
+                    position: 'absolute',
+                    bottom: '0.05em',
+                    left: 0,
+                    width: '100%',
+                    height: '0.5em',
+                    pointerEvents: 'none',
+                    zIndex: 0,
+                    transform: 'rotate(-1deg) scaleX(0)',
+                    transformOrigin: 'left center',
+                  }}
+                  viewBox="0 0 200 14"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M 2 9 C 22 5, 58 12, 98 7 C 138 2, 172 11, 198 8 L 198 12 C 172 14, 138 11, 98 12 C 58 13, 22 11, 2 12 Z"
+                    fill="var(--color-marker)"
+                  />
+                </svg>
+              </span>
+            </p>
+          );
+        })()}
+
+
 
       </div>
     </section>
