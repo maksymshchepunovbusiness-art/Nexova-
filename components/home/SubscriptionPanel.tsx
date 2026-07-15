@@ -19,7 +19,8 @@ export default function SubscriptionPanel() {
 
   const totalPln = calcSubscriptionPrice(selectedSite, selectedCare);
   const displayPrice = formatPrice(totalPln, locale);
-  const basicCarePrice = formatPrice(pricing.care.basic.pricePln, locale);
+  // After 12 months, care continues at the discounted subscription rate (300 zł/mies for Basic)
+  const basicCarePrice = formatPrice(discountedCarePrice('basic'), locale);
 
   const siteLabels: Record<SiteType, string> = {
     start:    t('siteStart'),

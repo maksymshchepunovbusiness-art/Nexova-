@@ -7,11 +7,11 @@ export const pricing = {
   subscription: {
     minTermMonths: 12,
     discountPct: 0.25, // -25% vs jednorazowa — update here to change everywhere
-    // Lower bound of monthly total when paired with Care Basic (placeholder — Maks confirms)
+    // Monthly total when paired with Care Basic (includes discounted care at 300 zł/mies)
     fromPln: {
-      start:    600,
-      business: 800,
-      sklep:    1100,
+      start:    449,
+      business: 649,
+      sklep:    999,
     },
   },
   // Approximate exchange rates — update before deploy
