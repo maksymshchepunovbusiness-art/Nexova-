@@ -248,7 +248,7 @@ export default function ProblemSection() {
           </div>
         </div>
 
-        {/* Punchline — last word gets a marker swipe */}
+        {/* Punchline — last word gets a full-word accent wash behind it */}
         {(() => {
           const punchWords = punchline.trim().split(/\s+/);
           const lastWord = punchWords[punchWords.length - 1];
@@ -262,30 +262,31 @@ export default function ProblemSection() {
             >
               {restWords}{' '}
               <span className="relative" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
-                {lastWord}
-                {/* hand-drawn marker blob — animated via timeline */}
+                {/* Accent wash blob — full glyph box coverage, behind text */}
                 <svg
                   ref={punchMarkerRef}
                   aria-hidden
                   style={{
                     position: 'absolute',
-                    bottom: '0.05em',
-                    left: 0,
-                    width: '100%',
-                    height: '0.5em',
+                    bottom: '-0.18em',
+                    left: '-0.05em',
+                    width: 'calc(100% + 0.1em)',
+                    height: '1.2em',
                     pointerEvents: 'none',
                     zIndex: 0,
                     transform: 'rotate(-1deg) scaleX(0)',
                     transformOrigin: 'left center',
                   }}
-                  viewBox="0 0 200 14"
+                  viewBox="0 0 200 50"
                   preserveAspectRatio="none"
                 >
                   <path
-                    d="M 2 9 C 22 5, 58 12, 98 7 C 138 2, 172 11, 198 8 L 198 12 C 172 14, 138 11, 98 12 C 58 13, 22 11, 2 12 Z"
+                    d="M 5 8 C 35 2, 90 5, 140 4 C 165 3, 188 6, 196 9 C 199 18, 199 34, 196 42 C 168 48, 110 45, 68 47 C 38 48, 12 46, 4 43 C 2 34, 2 18, 5 8 Z"
                     fill="var(--color-marker)"
                   />
                 </svg>
+                {/* Text after SVG — natural stacking puts text on top */}
+                <span style={{ position: 'relative', zIndex: 1 }}>{lastWord}</span>
               </span>
             </p>
           );

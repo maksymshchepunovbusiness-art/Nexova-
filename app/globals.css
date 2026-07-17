@@ -14,7 +14,7 @@
   --color-line:         #E3E0D9;   /* hairline rules, borders */
   --color-terracotta:   #EA580C;   /* primary CTA fill only */
   --color-success:      #16A34A;   /* checkmarks, positive states */
-  --color-marker:       #FFD84D;   /* highlighter marker swipe (S7) */
+  --color-marker:       color-mix(in srgb, var(--color-accent) 13%, transparent); /* highlighter wash behind word (S7) — fallback rgba(43,99,250,0.13) */
 
   /* Legacy aliases so existing components compile without renaming */
   --color-indigo:       #2B63FA;   /* was purple #4338CA → now the accent blue */
