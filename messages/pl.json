@@ -184,12 +184,15 @@
       "careNone": "Bez opieki",
       "careBasic": "Care Basic — hosting + serwis",
       "carePlus": "Care Plus — + treści i SEO",
-      "resultPrefix": "Szacunkowy koszt jednorazowy:",
-      "resultRange": "od {min} do {max} zł",
-      "resultCare": " + {price} zł/mies. opieka",
-      "resultSub": "Albo w abonamencie od {subPrice} zł/mies. (opieka w cenie)",
+      "resultOneTimeLabel": "Jednorazowo:",
+      "resultApprox": "ok.",
+      "resultSubLabel": "W abonamencie:",
+      "resultSubFrom": "od {price}",
+      "resultSubNote": "umowa 12 mies., opieka Care Basic w cenie",
+      "resultCareNote": "w abonamencie opieka zawsze w cenie",
+      "resultDisclaimer": "Wycena orientacyjna — dokładną cenę podaję po rozmowie.",
       "cta": "Chcę taką stronę",
-      "ctaContext": "Kalkulator: strona {site}, {pages}, {care}"
+      "ctaContext": "Kalkulator: {site}, {pages}, {care} — jednorazowo {low}–{high}, abonament od {monthly}"
     }
   },
   "pricing": {

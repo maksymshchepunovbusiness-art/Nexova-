@@ -140,12 +140,15 @@
       "careNone": "Bez péče",
       "careBasic": "Care Basic — hosting + servis",
       "carePlus": "Care Plus — + obsah a SEO",
-      "resultPrefix": "Odhadovaná jednorázová cena:",
-      "resultRange": "od {min} do {max} Kč",
-      "resultCare": " + {price} Kč/měs. péče",
-      "resultSub": "Nebo od {subPrice} Kč/měs. v předplatném (péče v ceně)",
+      "resultOneTimeLabel": "Jednorázově:",
+      "resultApprox": "cca",
+      "resultSubLabel": "V předplatném:",
+      "resultSubFrom": "od {price}",
+      "resultSubNote": "smlouva 12 měs., péče Care Basic v ceně",
+      "resultCareNote": "v předplatném je péče vždy v ceně",
+      "resultDisclaimer": "Orientační odhad — přesnou cenu sdělím po rozhovoru.",
       "cta": "Chci takový web",
-      "ctaContext": "Kalkulačka: web {site}, {pages}, {care}"
+      "ctaContext": "Kalkulačka: {site}, {pages}, {care} — jednorázově {low}–{high}, předplatné od {monthly}"
     }
   },
   "pricing": {

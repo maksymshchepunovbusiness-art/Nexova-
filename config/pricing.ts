@@ -1,29 +1,34 @@
-// ⚠ PLACEHOLDER PRICES — Maks confirms before deploy
+import {
+  CARE_LIST_PLN,
+  CARE_SUBSCRIPTION_DISCOUNT,
+  FX,
+  cardMonthly,
+  discountedCareMonthly,
+} from '@/lib/pricing';
+
+// Re-export types so existing consumers (SubscriptionPanel, etc.) keep their imports
+export type { SiteKey as SiteType, CareTier } from '@/lib/pricing';
+
+/**
+ * Runtime pricing object used by SubscriptionPanel and formatPrice.
+ * All monthly values are now derived from the shared lib/pricing formula.
+ */
 export const pricing = {
   care: {
-    basic: { pricePln: 400 },
-    plus:  { pricePln: 800 },
+    basic: { pricePln: CARE_LIST_PLN.basic },
+    plus:  { pricePln: CARE_LIST_PLN.plus  },
   },
   subscription: {
     minTermMonths: 12,
-    discountPct: 0.25, // -25% vs jednorazowa — update here to change everywhere
-    // Monthly total when paired with Care Basic (includes discounted care at 300 zł/mies)
+    discountPct:   CARE_SUBSCRIPTION_DISCOUNT,
     fromPln: {
-      start:    449,
-      business: 649,
-      sklep:    999,
+      start:    cardMonthly('start',    'basic'),
+      business: cardMonthly('business', 'basic'),
+      sklep:    cardMonthly('sklep',    'basic'),
     },
   },
-  // Approximate exchange rates — update before deploy
-  fx: {
-    czk: 5.8,   // 1 PLN ≈ 5.8 CZK
-    usd: 0.25,  // 1 PLN ≈ 0.25 USD
-    uah: 10.5,  // 1 PLN ≈ 10.5 UAH
-  },
+  fx: FX,
 } as const;
-
-export type SiteType = keyof typeof pricing.subscription.fromPln;
-export type CareTier = keyof typeof pricing.care;
 
 interface CurrencyConfig {
   symbol: string;
@@ -35,14 +40,14 @@ interface CurrencyConfig {
 
 const CURRENCIES: Record<string, CurrencyConfig> = {
   pl: { symbol: 'zł',  unit: '/mies.', multiplier: 1,             prefix: false, round: 10  },
-  cs: { symbol: 'Kč',  unit: '/měs.',  multiplier: pricing.fx.czk, prefix: false, round: 100 },
-  en: { symbol: '$',   unit: '/mo.',   multiplier: pricing.fx.usd, prefix: true,  round: 5   },
-  uk: { symbol: 'грн', unit: '/міс.',  multiplier: pricing.fx.uah, prefix: false, round: 50  },
+  cs: { symbol: 'Kč',  unit: '/měs.',  multiplier: FX.czk,        prefix: false, round: 100 },
+  en: { symbol: '$',   unit: '/mo.',   multiplier: FX.usd,        prefix: true,  round: 5   },
+  uk: { symbol: 'грн', unit: '/міс.',  multiplier: FX.uah,        prefix: false, round: 50  },
 };
 
 function fmtThousands(n: number): string {
   if (n < 1000) return String(n);
-  return String(Math.floor(n / 1000)) + ' ' + String(n % 1000).padStart(3, '0');
+  return String(Math.floor(n / 1000)) + ' ' + String(n % 1000).padStart(3, '0');
 }
 
 export function formatPrice(amountPln: number, locale: string): string {
@@ -50,19 +55,18 @@ export function formatPrice(amountPln: number, locale: string): string {
   const raw = amountPln * cfg.multiplier;
   const rounded = Math.round(raw / cfg.round) * cfg.round;
   const n = fmtThousands(rounded);
-  return cfg.prefix ? `${cfg.symbol}${n}${cfg.unit}` : `${n} ${cfg.symbol}${cfg.unit}`;
+  return cfg.prefix ? `${cfg.symbol}${n}${cfg.unit}` : `${n} ${cfg.symbol}${cfg.unit}`;
 }
 
-export function discountedCarePrice(care: CareTier): number {
-  return Math.round(
-    pricing.care[care].pricePln * (1 - pricing.subscription.discountPct)
-  );
+/** Care monthly price at the 25 % subscription discount */
+export function discountedCarePrice(care: 'basic' | 'plus'): number {
+  return discountedCareMonthly(care);
 }
 
-export function calcSubscriptionPrice(site: SiteType, care: CareTier): number {
-  const base = pricing.subscription.fromPln[site]; // includes discounted Basic care
-  const extraCare =
-    (pricing.care[care].pricePln - pricing.care.basic.pricePln) *
-    (1 - pricing.subscription.discountPct);
-  return Math.round(base + extraCare);
+/** Monthly subscription total for a given site type + care tier (pricing-card config) */
+export function calcSubscriptionPrice(
+  site: 'start' | 'business' | 'sklep',
+  care: 'basic' | 'plus',
+): number {
+  return cardMonthly(site, care);
 }

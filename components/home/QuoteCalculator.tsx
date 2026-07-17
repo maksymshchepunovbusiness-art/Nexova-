@@ -3,47 +3,41 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { pricing, calcSubscriptionPrice } from '@/config/pricing';
+import {
+  estimateLow,
+  estimateHigh,
+  estimateMonthly,
+  PAGE_COUNTS,
+  CARE_LIST_PLN,
+  FX,
+} from '@/lib/pricing';
+import type { SiteKey, PagesKey } from '@/lib/pricing';
 
-type SiteKey  = 'start' | 'business' | 'sklep';
-type PagesKey = '12' | '35' | '610' | '10p';
-type CareKey  = 'none' | 'basic' | 'plus';
+type CareKey = 'none' | 'basic' | 'plus';
 
-const BASE_PLN: Record<SiteKey, [number, number]> = {
-  start:    [1500, 2200],
-  business: [3500, 5500],
-  sklep:    [7000, 12000],
-};
-
-const PAGE_MULT: Record<PagesKey, number> = {
-  '12':  1.0,
-  '35':  1.30,
-  '610': 1.65,
-  '10p': 2.10,
-};
-
-const CARE_PLN: Record<CareKey, number> = {
-  none:  0,
-  basic: pricing.care.basic.pricePln,
-  plus:  pricing.care.plus.pricePln,
-};
-
+// One-time project price rounding (large numbers)
 type CurrencyCfg = { mult: number; round: number; sym: string; pre: boolean };
 
-// One-time project price rounding (large numbers: 1 500–12 000 zł)
 const CURRENCIES: Record<string, CurrencyCfg> = {
-  pl: { mult: 1,              round: 100, sym: 'zł',  pre: false },
-  cs: { mult: pricing.fx.czk, round: 500, sym: 'Kč',  pre: false },
-  en: { mult: pricing.fx.usd, round: 25,  sym: '$',   pre: true  },
-  uk: { mult: pricing.fx.uah, round: 500, sym: 'грн', pre: false },
+  pl: { mult: 1,       round: 100, sym: 'zł',  pre: false },
+  cs: { mult: FX.czk,  round: 500, sym: 'Kč',  pre: false },
+  en: { mult: FX.usd,  round: 25,  sym: '$',   pre: true  },
+  uk: { mult: FX.uah,  round: 500, sym: 'грн', pre: false },
 };
 
-// Monthly subscription/care price rounding (smaller numbers: 449–999 zł)
+// Monthly price rounding (smaller numbers)
 const CURRENCIES_MO: Record<string, CurrencyCfg> = {
-  pl: { mult: 1,              round: 1,  sym: 'zł',  pre: false },
-  cs: { mult: pricing.fx.czk, round: 50, sym: 'Kč',  pre: false },
-  en: { mult: pricing.fx.usd, round: 5,  sym: '$',   pre: true  },
-  uk: { mult: pricing.fx.uah, round: 50, sym: 'грн', pre: false },
+  pl: { mult: 1,       round: 1,  sym: 'zł',  pre: false },
+  cs: { mult: FX.czk,  round: 50, sym: 'Kč',  pre: false },
+  en: { mult: FX.usd,  round: 5,  sym: '$',   pre: true  },
+  uk: { mult: FX.uah,  round: 50, sym: 'грн', pre: false },
+};
+
+// Care standalone monthly prices (for one-time option add-on display)
+const CARE_PLN: Record<CareKey, number> = {
+  none:  0,
+  basic: CARE_LIST_PLN.basic,
+  plus:  CARE_LIST_PLN.plus,
 };
 
 function fmtN(n: number, c: CurrencyCfg): string {
@@ -62,9 +56,9 @@ function fmtMonthly(n: number, locale: string): string {
 
 function useAnimatedNumber(target: number, duration = 250): number {
   const [displayed, setDisplayed] = useState(target);
-  const rafRef    = useRef<number>(0);
-  const startRef  = useRef<number>(0);
-  const fromRef   = useRef<number>(target);
+  const rafRef   = useRef<number>(0);
+  const startRef = useRef<number>(0);
+  const fromRef  = useRef<number>(target);
 
   useEffect(() => {
     const from = fromRef.current;
@@ -73,7 +67,7 @@ function useAnimatedNumber(target: number, duration = 250): number {
     startRef.current = performance.now();
 
     const tick = (now: number) => {
-      const t   = Math.min((now - startRef.current) / duration, 1);
+      const t    = Math.min((now - startRef.current) / duration, 1);
       const ease = 1 - (1 - t) ** 3;
       setDisplayed(Math.round(from + (target - from) * ease));
       if (t < 1) rafRef.current = requestAnimationFrame(tick);
@@ -124,24 +118,33 @@ export default function QuoteCalculator() {
   const [pages, setPages] = useState<PagesKey>('35');
   const [care,  setCare]  = useState<CareKey>('basic');
 
-  const mult          = PAGE_MULT[pages];
-  const [rawMin, rawMax] = BASE_PLN[site];
-  const minPln        = Math.round(rawMin * mult / 100) * 100;
-  const maxPln        = Math.round(rawMax * mult / 100) * 100;
-  const carePln       = CARE_PLN[care];
-  const subPln        = calcSubscriptionPrice(site, 'basic');
+  // Core estimates from shared lib (single source of truth)
+  const pageCount  = PAGE_COUNTS[pages];
+  const lowPln     = estimateLow(site, pageCount);
+  const highPln    = estimateHigh(site, pageCount);
+  const monthlyPln = estimateMonthly(lowPln);
+  const carePln    = CARE_PLN[care];
 
-  // Raw integer targets for animation (keep in PLN space, convert for display)
-  const animRawMin  = useAnimatedNumber(minPln);
-  const animRawMax  = useAnimatedNumber(maxPln);
-  const animRawCare = useAnimatedNumber(carePln);
-  const animRawSub  = useAnimatedNumber(subPln);
+  // Animate all price targets over 250 ms
+  const animLow     = useAnimatedNumber(lowPln);
+  const animHigh    = useAnimatedNumber(highPln);
+  const animMonthly = useAnimatedNumber(monthlyPln);
+  const animCare    = useAnimatedNumber(carePln);
 
-  // Contact form context string
+  // Build contact context with both figures so the Telegram lead is complete
   const siteLabel  = [t('siteStart'), t('siteBusiness'), t('siteSklep')][(['start','business','sklep'] as SiteKey[]).indexOf(site)];
   const pagesLabel = [t('pages12'), t('pages35'), t('pages610'), t('pages10p')][(['12','35','610','10p'] as PagesKey[]).indexOf(pages)];
   const careLabel  = [t('careNone'), t('careBasic'), t('carePlus')][(['none','basic','plus'] as CareKey[]).indexOf(care)];
-  const ctx        = encodeURIComponent(t('ctaContext', { site: siteLabel, pages: pagesLabel, care: careLabel }));
+  const ctx = encodeURIComponent(
+    t('ctaContext', {
+      site:    siteLabel,
+      pages:   pagesLabel,
+      care:    careLabel,
+      low:     fmtN(lowPln, cur),
+      high:    fmtN(highPln, cur),
+      monthly: fmtMonthly(monthlyPln, locale),
+    })
+  );
 
   return (
     <section className="py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
@@ -161,9 +164,9 @@ export default function QuoteCalculator() {
           {t('h2')}
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-12 items-start">
 
-          {/* ── Steps ─────────────────────────────────────────────────────────── */}
+          {/* ── Steps ─────────────────────────────────────────────────── */}
           <div>
 
             {/* Step 1 — site type */}
@@ -226,42 +229,53 @@ export default function QuoteCalculator() {
 
           </div>
 
-          {/* ── Result card ────────────────────────────────────────────────────── */}
+          {/* ── Result card ─────────────────────────────────────────────── */}
           <div
             className="rounded-2xl p-7 sticky top-8"
             style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-line)' }}
           >
-            <p className="text-label mb-2" style={{ color: 'var(--color-ink-soft)' }}>
-              {t('resultPrefix')}
-            </p>
 
-            {/* Animated price range */}
+            {/* ── ONE-TIME block ── */}
+            <p className="text-label font-semibold mb-2" style={{ color: 'var(--color-ink-soft)' }}>
+              {t('resultOneTimeLabel')}
+            </p>
             <p
-              className="font-bold mb-1 tabular-nums"
-              style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', lineHeight: 1.2 }}
+              className="font-bold tabular-nums"
+              style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)', fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', lineHeight: 1.2 }}
             >
-              {fmtN(animRawMin, cur)}–{fmtN(animRawMax, cur)}
+              {t('resultApprox')} {fmtN(animLow, cur)}–{fmtN(animHigh, cur)}
             </p>
 
             {care !== 'none' && (
-              <p className="text-label font-semibold mb-3 tabular-nums" style={{ color: 'var(--color-accent)' }}>
-                + {fmtMonthly(animRawCare, locale)}
+              <p className="text-label font-semibold mt-1.5 tabular-nums" style={{ color: 'var(--color-accent)' }}>
+                + {fmtMonthly(animCare, locale)} {care === 'basic' ? 'Care Basic' : 'Care Plus'}
               </p>
             )}
 
             {/* Divider */}
-            <div className="my-4" style={{ height: '1px', backgroundColor: 'var(--color-line)' }} />
+            <div className="my-5" style={{ height: '1px', backgroundColor: 'var(--color-line)' }} />
 
-            {/* Subscription alternative */}
-            <p className="text-label leading-relaxed mb-5 tabular-nums" style={{ color: 'var(--color-ink-soft)' }}>
-              {locale === 'pl'
-                ? `Albo ${fmtMonthly(animRawSub, locale)} w abonamencie (opieka w cenie)`
-                : locale === 'cs'
-                  ? `Nebo ${fmtMonthly(animRawSub, locale)} v předplatném (péče v ceně)`
-                  : locale === 'uk'
-                    ? `Або ${fmtMonthly(animRawSub, locale)} у підписці (підтримка в ціні)`
-                    : `Or ${fmtMonthly(animRawSub, locale)} in subscription (care included)`}
+            {/* ── SUBSCRIPTION block ── */}
+            <p className="text-label font-semibold mb-2" style={{ color: 'var(--color-ink-soft)' }}>
+              {t('resultSubLabel')}
             </p>
+            <p
+              className="font-bold tabular-nums"
+              style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)', fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)', lineHeight: 1.2 }}
+            >
+              {t('resultSubFrom', { price: fmtMonthly(animMonthly, locale) })}
+            </p>
+            <p className="text-[11px] mt-2 leading-relaxed" style={{ color: 'var(--color-ink-soft)' }}>
+              {t('resultSubNote')}
+            </p>
+            {care === 'none' && (
+              <p className="text-[11px] mt-1" style={{ color: 'var(--color-ink-soft)', fontStyle: 'italic' }}>
+                {t('resultCareNote')}
+              </p>
+            )}
+
+            {/* Divider */}
+            <div className="my-5" style={{ height: '1px', backgroundColor: 'var(--color-line)' }} />
 
             <Link
               href={`/kontakt?context=${ctx}`}
@@ -271,10 +285,7 @@ export default function QuoteCalculator() {
             </Link>
 
             <p className="text-[10px] text-center mt-3" style={{ color: 'var(--color-ink-soft)' }}>
-              {locale === 'pl' ? 'Szacunek. Dokładna wycena jest bezpłatna.'
-               : locale === 'cs' ? 'Odhad. Přesná nabídka je zdarma.'
-               : locale === 'uk' ? 'Орієнтовно. Точна оцінка безкоштовно.'
-               : 'Estimate only. Exact quote is free.'}
+              {t('resultDisclaimer')}
             </p>
           </div>
 

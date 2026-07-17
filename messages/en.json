@@ -139,12 +139,15 @@
       "careNone": "No care plan",
       "careBasic": "Care Basic — hosting + maintenance",
       "carePlus": "Care Plus — + content & SEO",
-      "resultPrefix": "Estimated one-time cost:",
-      "resultRange": "${min}–${max}",
-      "resultCare": " + ${price}/mo. care",
-      "resultSub": "Or from ${subPrice}/mo. in subscription (care included)",
+      "resultOneTimeLabel": "One-time:",
+      "resultApprox": "~",
+      "resultSubLabel": "In subscription:",
+      "resultSubFrom": "from {price}",
+      "resultSubNote": "12-month contract, Care Basic included",
+      "resultCareNote": "subscription always includes care",
+      "resultDisclaimer": "Estimate only — exact price after a conversation.",
       "cta": "I want this site",
-      "ctaContext": "Calculator: {site} site, {pages}, {care}"
+      "ctaContext": "Calculator: {site}, {pages}, {care} — one-time {low}–{high}, subscription from {monthly}"
     }
   },
   "pricing": {

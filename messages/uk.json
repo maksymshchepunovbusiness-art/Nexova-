@@ -140,12 +140,15 @@
       "careNone": "Без підтримки",
       "careBasic": "Care Basic — хостинг + сервіс",
       "carePlus": "Care Plus — + контент і SEO",
-      "resultPrefix": "Орієнтовна одноразова вартість:",
-      "resultRange": "від {min} до {max} грн",
-      "resultCare": " + {price} грн/міс. підтримка",
-      "resultSub": "Або від {subPrice} грн/міс. у підписці (підтримка в ціні)",
+      "resultOneTimeLabel": "Одноразово:",
+      "resultApprox": "прибл.",
+      "resultSubLabel": "У підписці:",
+      "resultSubFrom": "від {price}",
+      "resultSubNote": "договір 12 міс., підтримка Care Basic в ціні",
+      "resultCareNote": "у підписці підтримка завжди в ціні",
+      "resultDisclaimer": "Орієнтовна оцінка — точну ціну скажу після розмови.",
       "cta": "Хочу такий сайт",
-      "ctaContext": "Калькулятор: сайт {site}, {pages}, {care}"
+      "ctaContext": "Калькулятор: {site}, {pages}, {care} — одноразово {low}–{high}, підписка від {monthly}"
     }
   },
   "pricing": {
