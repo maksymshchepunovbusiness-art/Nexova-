@@ -2,31 +2,32 @@
 
 function Chrome() {
   return (
-    <div style={{ background: '#DEE1E6', userSelect: 'none' }}>
+    <div style={{ background: 'var(--color-bg, #FAF9F6)', userSelect: 'none', borderBottom: '1px solid var(--color-line, #E3E0D9)' }}>
       {/* Tab strip */}
       <div style={{ display: 'flex', alignItems: 'flex-end', padding: '6px 8px 0', gap: 4 }}>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 6,
-          background: '#fff', borderRadius: '8px 8px 0 0',
+          background: 'var(--color-surface, #F1EFEA)', borderRadius: '8px 8px 0 0',
           padding: '6px 10px', maxWidth: 190,
-          border: '1px solid #C0C4CC', borderBottom: 'none',
+          border: '1px solid var(--color-line, #E3E0D9)', borderBottom: 'none',
         }}>
           <div style={{ width: 12, height: 12, borderRadius: 3, background: '#D97706', flexShrink: 0 }} />
-          <span style={{ fontSize: 10, color: '#202124', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ fontSize: 10, color: 'var(--color-ink, #14161A)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             AutoPro Serwis
           </span>
-          <span style={{ fontSize: 9, color: '#80868B', marginLeft: 'auto', paddingLeft: 4 }}>✕</span>
+          <span style={{ fontSize: 9, color: 'var(--color-ink-soft, #4A4E55)', marginLeft: 'auto', paddingLeft: 4 }}>✕</span>
         </div>
       </div>
       {/* Address bar */}
       <div style={{
-        background: '#F1F3F4', borderTop: '1px solid #C0C4CC',
+        background: 'var(--color-bg, #FAF9F6)',
         padding: '5px 8px', display: 'flex', gap: 6, alignItems: 'center',
       }}>
         <div style={{
-          flex: 1, background: '#fff', borderRadius: 20,
+          flex: 1, background: 'var(--color-surface, #F1EFEA)', borderRadius: 20,
+          border: '1px solid var(--color-line, #E3E0D9)',
           padding: '4px 12px', display: 'flex', alignItems: 'center', gap: 6,
-          fontSize: 10, color: '#202124',
+          fontSize: 10, color: 'var(--color-ink-soft, #4A4E55)',
         }}>
           <span style={{ fontSize: 9, color: '#188038' }}>🔒</span>
           autopro-serwis.pl
@@ -174,7 +175,7 @@ function PageContent() {
 
 export default function AutoProDevice() {
   return (
-    <div style={{ borderRadius: 12, overflow: 'hidden', background: '#DEE1E6' }}>
+    <div style={{ borderRadius: 12, overflow: 'hidden', background: 'var(--color-bg, #FAF9F6)', border: '1px solid var(--color-line, #E3E0D9)' }}>
       <Chrome />
       <div style={{ height: 440, overflow: 'hidden', position: 'relative' }}>
         <div className="autopro-scroll">
