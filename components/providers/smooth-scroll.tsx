@@ -26,6 +26,7 @@ export default function SmoothScrollProvider({
       smoothWheel: true,
       touchMultiplier: 2,
     });
+    (window as any).__lenis = lenis;
 
     // Keep GSAP ScrollTrigger in sync with Lenis scroll position
     lenis.on('scroll', ScrollTrigger.update);
@@ -48,6 +49,7 @@ export default function SmoothScrollProvider({
       ro.disconnect();
       gsap.ticker.remove(gsapTicker);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 

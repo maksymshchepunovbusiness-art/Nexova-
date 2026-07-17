@@ -162,6 +162,7 @@ export default function ProblemSection() {
 
   return (
     <section
+      id="problem"
       ref={sectionRef}
       className="relative py-32"
       style={{ overflowX: 'clip' }}

@@ -12,7 +12,7 @@ export default function PortfolioSection() {
   const t = useTranslations('home.portfolio');
 
   return (
-    <section className="py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section id="realizacje" className="py-24" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

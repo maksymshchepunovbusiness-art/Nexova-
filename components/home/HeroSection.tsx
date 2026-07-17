@@ -49,7 +49,7 @@ export default function HeroSection({
   const accentSet = h1Accents ? new Set(h1Accents.split('|')) : null;
 
   return (
-    <section className="relative overflow-hidden">
+    <section id="hero" className="relative overflow-hidden">
       <div
         ref={containerRef}
         className="relative mx-auto max-w-7xl w-full px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"

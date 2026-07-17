@@ -8,6 +8,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SmoothScrollProvider from '@/components/providers/smooth-scroll';
 import PageScrollBlur from '@/components/layout/PageScrollBlur';
+import { ScrollProgressLine } from '@/components/ui/scroll-progress-line';
 import '../globals.css';
 
 const instrumentSans = Instrument_Sans({
@@ -85,6 +86,7 @@ export default async function LocaleLayout({
             <Header locale={locale} />
             <main className="flex-1">{children}</main>
             <Footer locale={locale} />
+            <ScrollProgressLine locale={locale} />
           </NextIntlClientProvider>
         </SmoothScrollProvider>
       </body>
