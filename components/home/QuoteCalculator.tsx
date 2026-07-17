@@ -90,7 +90,9 @@ export default function QuoteCalculator() {
   const [pages, setPages] = useState<PagesKey>('35');
   const [care,  setCare]  = useState<CareKey>('basic');
 
-  // Derive prices from shared lib (single source of truth)
+  // Landing is always 1 page — podstrony control is disabled but pages state is kept
+  // so it restores when switching back to Firmowa/Sklep.
+  const isLanding  = site === 'start';
   const pageCount  = PAGE_COUNTS[pages];
   const lowPln     = estimateLow(site, pageCount);
   const highPln    = estimateHigh(site, pageCount);
@@ -99,7 +101,7 @@ export default function QuoteCalculator() {
 
   // Build contact context with both figures
   const siteLabel  = [t('siteStart'), t('siteBusiness'), t('siteSklep')][(['start','business','sklep'] as SiteKey[]).indexOf(site)];
-  const pagesLabel = [t('pages12'), t('pages35'), t('pages610'), t('pages10p')][(['12','35','610','10p'] as PagesKey[]).indexOf(pages)];
+  const pagesLabel = isLanding ? '1 strona' : [t('pages12'), t('pages35'), t('pages610'), t('pages10p')][(['12','35','610','10p'] as PagesKey[]).indexOf(pages)];
   const careLabel  = [t('careNone'), t('careBasic'), t('carePlus')][(['none','basic','plus'] as CareKey[]).indexOf(care)];
   const ctx = encodeURIComponent(
     t('ctaContext', {
@@ -153,10 +155,22 @@ export default function QuoteCalculator() {
               </div>
             </fieldset>
 
-            <fieldset className="mb-7">
+            <fieldset
+              className="mb-7"
+              aria-disabled={isLanding ? 'true' : undefined}
+              style={isLanding ? { opacity: 0.4, cursor: 'not-allowed', userSelect: 'none' } : undefined}
+            >
               <legend className="text-label font-semibold mb-3 block" style={{ color: 'var(--color-ink)' }}>
                 {t('step2')}
               </legend>
+              {isLanding ? (
+                <p
+                  className="px-4 py-3 rounded-[10px] border text-sm font-semibold"
+                  style={{ borderColor: 'var(--color-line)', color: 'var(--color-ink-soft)', display: 'inline-block' }}
+                >
+                  1 strona
+                </p>
+              ) : (
               <div className="flex flex-wrap gap-2">
                 {(['12', '35', '610', '10p'] as PagesKey[]).map((v) => (
                   <RadioCard
@@ -169,6 +183,7 @@ export default function QuoteCalculator() {
                   />
                 ))}
               </div>
+              )}
             </fieldset>
 
             <fieldset>
