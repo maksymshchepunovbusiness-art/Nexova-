@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { pricing, formatPrice, calcSubscriptionPrice, discountedCarePrice } from '@/config/pricing';
+import DecodeNumber from '@/components/ui/decode-number';
 import type { SiteType, CareTier } from '@/config/pricing';
 import FaqAccordion from './FaqAccordion';
 
@@ -147,7 +148,10 @@ export default function SubscriptionPanel() {
           {/* Price preview */}
           <div className="bg-indigo/5 dark:bg-indigo/10 border border-indigo/20 dark:border-indigo/30 rounded-xl p-5 mb-6">
             <p className="text-2xl font-bold text-ink dark:text-white mb-1">
-              {t('priceNote', { price: displayPrice })}
+              <DecodeNumber
+                value={t('priceNote', { price: displayPrice })}
+                decodeOnMount
+              />
             </p>
             <p className="text-sm text-text-muted dark:text-white/60 mb-2">
               {t('priceAfter', { carePrice: basicCarePrice })}

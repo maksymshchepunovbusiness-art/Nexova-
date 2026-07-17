@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import {
@@ -12,10 +12,10 @@ import {
   FX,
 } from '@/lib/pricing';
 import type { SiteKey, PagesKey } from '@/lib/pricing';
+import DecodeNumber from '@/components/ui/decode-number';
 
 type CareKey = 'none' | 'basic' | 'plus';
 
-// One-time project price rounding (large numbers)
 type CurrencyCfg = { mult: number; round: number; sym: string; pre: boolean };
 
 const CURRENCIES: Record<string, CurrencyCfg> = {
@@ -25,7 +25,6 @@ const CURRENCIES: Record<string, CurrencyCfg> = {
   uk: { mult: FX.uah,  round: 500, sym: 'грн', pre: false },
 };
 
-// Monthly price rounding (smaller numbers)
 const CURRENCIES_MO: Record<string, CurrencyCfg> = {
   pl: { mult: 1,       round: 1,  sym: 'zł',  pre: false },
   cs: { mult: FX.czk,  round: 50, sym: 'Kč',  pre: false },
@@ -33,7 +32,6 @@ const CURRENCIES_MO: Record<string, CurrencyCfg> = {
   uk: { mult: FX.uah,  round: 50, sym: 'грн', pre: false },
 };
 
-// Care standalone monthly prices (for one-time option add-on display)
 const CARE_PLN: Record<CareKey, number> = {
   none:  0,
   basic: CARE_LIST_PLN.basic,
@@ -52,32 +50,6 @@ function fmtMonthly(n: number, locale: string): string {
   const s    = val < 1000 ? String(val) : `${Math.floor(val / 1000)} ${String(val % 1000).padStart(3, '0')}`;
   const unit = locale === 'cs' ? '/měs.' : locale === 'en' ? '/mo.' : locale === 'uk' ? '/міс.' : '/mies.';
   return mo.pre ? `${mo.sym}${s}${unit}` : `${s} ${mo.sym}${unit}`;
-}
-
-function useAnimatedNumber(target: number, duration = 250): number {
-  const [displayed, setDisplayed] = useState(target);
-  const rafRef   = useRef<number>(0);
-  const startRef = useRef<number>(0);
-  const fromRef  = useRef<number>(target);
-
-  useEffect(() => {
-    const from = fromRef.current;
-    if (from === target) return;
-    cancelAnimationFrame(rafRef.current);
-    startRef.current = performance.now();
-
-    const tick = (now: number) => {
-      const t    = Math.min((now - startRef.current) / duration, 1);
-      const ease = 1 - (1 - t) ** 3;
-      setDisplayed(Math.round(from + (target - from) * ease));
-      if (t < 1) rafRef.current = requestAnimationFrame(tick);
-      else { fromRef.current = target; setDisplayed(target); }
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [target, duration]);
-
-  return displayed;
 }
 
 type RadioCardProps = {
@@ -118,20 +90,14 @@ export default function QuoteCalculator() {
   const [pages, setPages] = useState<PagesKey>('35');
   const [care,  setCare]  = useState<CareKey>('basic');
 
-  // Core estimates from shared lib (single source of truth)
+  // Derive prices from shared lib (single source of truth)
   const pageCount  = PAGE_COUNTS[pages];
   const lowPln     = estimateLow(site, pageCount);
   const highPln    = estimateHigh(site, pageCount);
   const monthlyPln = estimateMonthly(lowPln);
   const carePln    = CARE_PLN[care];
 
-  // Animate all price targets over 250 ms
-  const animLow     = useAnimatedNumber(lowPln);
-  const animHigh    = useAnimatedNumber(highPln);
-  const animMonthly = useAnimatedNumber(monthlyPln);
-  const animCare    = useAnimatedNumber(carePln);
-
-  // Build contact context with both figures so the Telegram lead is complete
+  // Build contact context with both figures
   const siteLabel  = [t('siteStart'), t('siteBusiness'), t('siteSklep')][(['start','business','sklep'] as SiteKey[]).indexOf(site)];
   const pagesLabel = [t('pages12'), t('pages35'), t('pages610'), t('pages10p')][(['12','35','610','10p'] as PagesKey[]).indexOf(pages)];
   const careLabel  = [t('careNone'), t('careBasic'), t('carePlus')][(['none','basic','plus'] as CareKey[]).indexOf(care)];
@@ -168,8 +134,6 @@ export default function QuoteCalculator() {
 
           {/* ── Steps ─────────────────────────────────────────────────── */}
           <div>
-
-            {/* Step 1 — site type */}
             <fieldset className="mb-7">
               <legend className="text-label font-semibold mb-3 block" style={{ color: 'var(--color-ink)' }}>
                 {t('step1')}
@@ -189,7 +153,6 @@ export default function QuoteCalculator() {
               </div>
             </fieldset>
 
-            {/* Step 2 — pages */}
             <fieldset className="mb-7">
               <legend className="text-label font-semibold mb-3 block" style={{ color: 'var(--color-ink)' }}>
                 {t('step2')}
@@ -208,7 +171,6 @@ export default function QuoteCalculator() {
               </div>
             </fieldset>
 
-            {/* Step 3 — care */}
             <fieldset>
               <legend className="text-label font-semibold mb-3 block" style={{ color: 'var(--color-ink)' }}>
                 {t('step3')}
@@ -226,7 +188,6 @@ export default function QuoteCalculator() {
                 ))}
               </div>
             </fieldset>
-
           </div>
 
           {/* ── Result card ─────────────────────────────────────────────── */}
@@ -234,36 +195,35 @@ export default function QuoteCalculator() {
             className="rounded-2xl p-7 sticky top-8"
             style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-line)' }}
           >
-
-            {/* ── ONE-TIME block ── */}
+            {/* ONE-TIME block */}
             <p className="text-label font-semibold mb-2" style={{ color: 'var(--color-ink-soft)' }}>
               {t('resultOneTimeLabel')}
             </p>
             <p
-              className="font-bold tabular-nums"
+              className="font-bold"
               style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)', fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', lineHeight: 1.2 }}
             >
-              {t('resultApprox')} {fmtN(animLow, cur)}–{fmtN(animHigh, cur)}
+              {t('resultApprox')}{' '}
+              <DecodeNumber value={`${fmtN(lowPln, cur)}–${fmtN(highPln, cur)}`} />
             </p>
 
             {care !== 'none' && (
-              <p className="text-label font-semibold mt-1.5 tabular-nums" style={{ color: 'var(--color-accent)' }}>
-                + {fmtMonthly(animCare, locale)} {care === 'basic' ? 'Care Basic' : 'Care Plus'}
+              <p className="text-label font-semibold mt-1.5" style={{ color: 'var(--color-accent)' }}>
+                + <DecodeNumber value={fmtMonthly(carePln, locale)} />{' '}{care === 'basic' ? 'Care Basic' : 'Care Plus'}
               </p>
             )}
 
-            {/* Divider */}
             <div className="my-5" style={{ height: '1px', backgroundColor: 'var(--color-line)' }} />
 
-            {/* ── SUBSCRIPTION block ── */}
+            {/* SUBSCRIPTION block */}
             <p className="text-label font-semibold mb-2" style={{ color: 'var(--color-ink-soft)' }}>
               {t('resultSubLabel')}
             </p>
             <p
-              className="font-bold tabular-nums"
+              className="font-bold"
               style={{ fontFamily: 'var(--font-display), Georgia, serif', color: 'var(--color-ink)', fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)', lineHeight: 1.2 }}
             >
-              {t('resultSubFrom', { price: fmtMonthly(animMonthly, locale) })}
+              <DecodeNumber value={t('resultSubFrom', { price: fmtMonthly(monthlyPln, locale) })} />
             </p>
             <p className="text-[11px] mt-2 leading-relaxed" style={{ color: 'var(--color-ink-soft)' }}>
               {t('resultSubNote')}
@@ -274,7 +234,6 @@ export default function QuoteCalculator() {
               </p>
             )}
 
-            {/* Divider */}
             <div className="my-5" style={{ height: '1px', backgroundColor: 'var(--color-line)' }} />
 
             <Link

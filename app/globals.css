@@ -69,9 +69,19 @@
   animation-play-state: running;
 }
 
+/* ── Tab-panel fade-in (ServicesSection mode switch) ─────────────────────── */
+@keyframes nexova-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.nexova-fade-in {
+  animation: nexova-fade-in 180ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .autopro-scroll,
-  .demo-frame-content { animation: none; }
+  .demo-frame-content,
+  .nexova-fade-in { animation: none; }
 }
 
 /* ── No aurora/glow in the new design — page-glow is inert ───────────────── */
