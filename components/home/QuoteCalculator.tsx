@@ -30,11 +30,20 @@ const CARE_PLN: Record<CareKey, number> = {
 
 type CurrencyCfg = { mult: number; round: number; sym: string; pre: boolean };
 
+// One-time project price rounding (large numbers: 1 500–12 000 zł)
 const CURRENCIES: Record<string, CurrencyCfg> = {
   pl: { mult: 1,              round: 100, sym: 'zł',  pre: false },
-  cs: { mult: pricing.fx.czk, round: 100, sym: 'Kč',  pre: false },
-  en: { mult: pricing.fx.usd, round: 5,   sym: '$',   pre: true  },
-  uk: { mult: pricing.fx.uah, round: 50,  sym: 'грн', pre: false },
+  cs: { mult: pricing.fx.czk, round: 500, sym: 'Kč',  pre: false },
+  en: { mult: pricing.fx.usd, round: 25,  sym: '$',   pre: true  },
+  uk: { mult: pricing.fx.uah, round: 500, sym: 'грн', pre: false },
+};
+
+// Monthly subscription/care price rounding (smaller numbers: 449–999 zł)
+const CURRENCIES_MO: Record<string, CurrencyCfg> = {
+  pl: { mult: 1,              round: 1,  sym: 'zł',  pre: false },
+  cs: { mult: pricing.fx.czk, round: 50, sym: 'Kč',  pre: false },
+  en: { mult: pricing.fx.usd, round: 5,  sym: '$',   pre: true  },
+  uk: { mult: pricing.fx.uah, round: 50, sym: 'грн', pre: false },
 };
 
 function fmtN(n: number, c: CurrencyCfg): string {
@@ -43,11 +52,12 @@ function fmtN(n: number, c: CurrencyCfg): string {
   return c.pre ? `${c.sym}${s}` : `${s} ${c.sym}`;
 }
 
-function fmtMonthly(n: number, c: CurrencyCfg, locale: string): string {
-  const val = Math.round(n * c.mult / c.round) * c.round;
-  const s = val < 1000 ? String(val) : `${Math.floor(val / 1000)} ${String(val % 1000).padStart(3, '0')}`;
+function fmtMonthly(n: number, locale: string): string {
+  const mo   = CURRENCIES_MO[locale] ?? CURRENCIES_MO.pl;
+  const val  = Math.round(n * mo.mult / mo.round) * mo.round;
+  const s    = val < 1000 ? String(val) : `${Math.floor(val / 1000)} ${String(val % 1000).padStart(3, '0')}`;
   const unit = locale === 'cs' ? '/měs.' : locale === 'en' ? '/mo.' : locale === 'uk' ? '/міс.' : '/mies.';
-  return c.pre ? `${c.sym}${s}${unit}` : `${s} ${c.sym}${unit}`;
+  return mo.pre ? `${mo.sym}${s}${unit}` : `${s} ${mo.sym}${unit}`;
 }
 
 function useAnimatedNumber(target: number, duration = 250): number {
@@ -235,7 +245,7 @@ export default function QuoteCalculator() {
 
             {care !== 'none' && (
               <p className="text-label font-semibold mb-3 tabular-nums" style={{ color: 'var(--color-accent)' }}>
-                + {fmtMonthly(animRawCare, cur, locale)}
+                + {fmtMonthly(animRawCare, locale)}
               </p>
             )}
 
@@ -245,12 +255,12 @@ export default function QuoteCalculator() {
             {/* Subscription alternative */}
             <p className="text-label leading-relaxed mb-5 tabular-nums" style={{ color: 'var(--color-ink-soft)' }}>
               {locale === 'pl'
-                ? `Albo ${fmtMonthly(animRawSub, cur, locale)} w abonamencie (opieka w cenie)`
+                ? `Albo ${fmtMonthly(animRawSub, locale)} w abonamencie (opieka w cenie)`
                 : locale === 'cs'
-                  ? `Nebo ${fmtMonthly(animRawSub, cur, locale)} v předplatném (péče v ceně)`
+                  ? `Nebo ${fmtMonthly(animRawSub, locale)} v předplatném (péče v ceně)`
                   : locale === 'uk'
-                    ? `Або ${fmtMonthly(animRawSub, cur, locale)} у підписці (підтримка в ціні)`
-                    : `Or ${fmtMonthly(animRawSub, cur, locale)} in subscription (care included)`}
+                    ? `Або ${fmtMonthly(animRawSub, locale)} у підписці (підтримка в ціні)`
+                    : `Or ${fmtMonthly(animRawSub, locale)} in subscription (care included)`}
             </p>
 
             <Link
