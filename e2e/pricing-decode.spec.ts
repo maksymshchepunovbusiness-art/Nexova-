@@ -93,6 +93,102 @@ test('B — pill indicator slides between tabs', async ({ page }) => {
   expect(transformAfter).toMatch(/translateX\(100%\)/);
 });
 
+// ── Test D: stress toggle — prices must always settle ────────────────────────
+
+test('D — stress toggle: 20 rapid clicks, prices always settle to exact values', async ({ page }) => {
+  await page.goto(BASE);
+  await scrollToSection(page, 'oferta');
+
+  await expect(jednorazowaBtn(page)).toBeVisible();
+
+  // 20 alternating clicks at 80ms intervals.
+  // Starting on jednorazowa: even-index clicks go abonament, odd go jednorazowa.
+  // 20 clicks → ends back on jednorazowa (even total = even # of abonament switches).
+  for (let i = 0; i < 20; i++) {
+    const btn = i % 2 === 0 ? abonamentBtn(page) : jednorazowaBtn(page);
+    await btn.click();
+    await page.waitForTimeout(80);
+  }
+
+  // Allow 1s for final animation to settle
+  await page.waitForTimeout(1000);
+
+  // No animation still in flight
+  expect(
+    await page.evaluate(() => document.querySelectorAll('[data-decoding="true"]').length)
+  ).toBe(0);
+
+  // All 3 jednorazowa card prices must show exact settled text
+  await expect(page.locator('[aria-label="od 1 500 zł"]')).toHaveText('od 1 500 zł');
+  await expect(page.locator('[aria-label="od 3 500 zł"]')).toHaveText('od 3 500 zł');
+  await expect(page.locator('[aria-label="od 7 000 zł"]')).toHaveText('od 7 000 zł');
+
+  // No digit at reduced opacity (0.55 is the scramble opacity)
+  const hasReducedOpacity = await page.evaluate(() => {
+    const labels = ['od 1 500 zł', 'od 3 500 zł', 'od 7 000 zł'];
+    return labels.some(label => {
+      const el = document.querySelector(`[aria-label="${label}"]`);
+      if (!el) return true; // missing element = fail
+      return Array.from(el.querySelectorAll('span')).some(
+        s => parseFloat((s as HTMLElement).style.opacity || '1') < 1
+      );
+    });
+  });
+  expect(hasReducedOpacity).toBe(false);
+});
+
+// ── Test E: watchdog — frozen rAF must still settle via setTimeout ────────────
+
+test('E — frozen rAF: watchdog settles prices within 1s', async ({ page }) => {
+  await page.goto(BASE);
+  await scrollToSection(page, 'oferta');
+
+  await expect(jednorazowaBtn(page)).toBeVisible();
+
+  // Switch to abonament so the next switch back triggers a decode on the cards
+  await abonamentBtn(page).click();
+  await page.waitForTimeout(100);
+
+  // Freeze requestAnimationFrame — simulates background-tab throttle or system sleep
+  await page.evaluate(() => {
+    (window as any).__origRAF = window.requestAnimationFrame;
+    window.requestAnimationFrame = (_cb: FrameRequestCallback): number => 0;
+  });
+
+  // Switch to jednorazowa — decode starts but rAF never fires
+  await jednorazowaBtn(page).click();
+
+  // Wait > 900ms watchdog deadline
+  await page.waitForTimeout(1100);
+
+  // Restore rAF
+  await page.evaluate(() => {
+    window.requestAnimationFrame = (window as any).__origRAF;
+  });
+  await page.waitForTimeout(200);
+
+  // Watchdog (or StrictMode cleanup) must have settled everything
+  expect(
+    await page.evaluate(() => document.querySelectorAll('[data-decoding="true"]').length)
+  ).toBe(0);
+
+  await expect(page.locator('[aria-label="od 1 500 zł"]')).toHaveText('od 1 500 zł');
+  await expect(page.locator('[aria-label="od 3 500 zł"]')).toHaveText('od 3 500 zł');
+  await expect(page.locator('[aria-label="od 7 000 zł"]')).toHaveText('od 7 000 zł');
+
+  const hasReducedOpacity = await page.evaluate(() => {
+    const labels = ['od 1 500 zł', 'od 3 500 zł', 'od 7 000 zł'];
+    return labels.some(label => {
+      const el = document.querySelector(`[aria-label="${label}"]`);
+      if (!el) return true;
+      return Array.from(el.querySelectorAll('span')).some(
+        s => parseFloat((s as HTMLElement).style.opacity || '1') < 1
+      );
+    });
+  });
+  expect(hasReducedOpacity).toBe(false);
+});
+
 // ── Test C: calculator → contact handoff ─────────────────────────────────────
 
 test('C — calculator CTA prefills contact message with price context', async ({ page }) => {
