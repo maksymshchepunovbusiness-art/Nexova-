@@ -67,11 +67,11 @@ export default function SubscriptionPanel() {
         <div className="bg-surface border border-border rounded-2xl p-6 sm:p-8 shadow-sm">
 
           {/* Savings banner */}
-          <div className="flex items-center gap-2 mb-6 px-4 py-3 rounded-xl bg-terracotta/10 dark:bg-terracotta/15 border border-terracotta/20">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-terracotta" aria-hidden>
+          <div className="flex items-center gap-2 mb-6 px-4 py-3 rounded-xl bg-accent/8 border border-accent/20">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-accent" aria-hidden>
               <polyline points="20 6 9 17 4 12" />
             </svg>
-            <p className="text-sm font-medium text-terracotta leading-snug">
+            <p className="text-sm font-medium text-accent leading-snug">
               {t('savingsBanner')}
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function SubscriptionPanel() {
           {/* CTA */}
           <Link
             href={`/kontakt?context=${contextParam}`}
-            className="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-[10px] bg-terracotta text-white font-semibold hover:bg-terracotta/90 active:scale-[0.98] transition-all duration-200 shadow-sm"
+            className="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-[10px] bg-accent text-white font-semibold hover:bg-accent-ink active:scale-[0.97] transition-all duration-150 shadow-sm"
           >
             {t('cta')}
           </Link>

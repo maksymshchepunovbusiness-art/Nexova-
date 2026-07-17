@@ -61,7 +61,7 @@ export default function ServicesSection() {
                 : 'border-indigo/40 bg-surface dark:bg-surface-2 hover:border-indigo/70'
             }`}
           >
-            <span className="absolute -top-3.5 left-4 inline-flex items-center bg-terracotta text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
+            <span className="absolute -top-3.5 left-4 inline-flex items-center bg-accent text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
               {tSub('recommended')}
             </span>
             <div className="flex items-start justify-between gap-3 mt-1">

@@ -85,7 +85,7 @@ export default function MobileMenu({ navLinks, quoteLabel }: MobileMenuProps) {
             <Link
               href="/kontakt"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-[8px] bg-terracotta text-white font-medium hover:bg-terracotta/90 transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-[8px] bg-accent text-white font-medium hover:bg-accent-ink active:scale-[0.97] transition-all duration-150 cursor-pointer"
             >
               {quoteLabel}
             </Link>

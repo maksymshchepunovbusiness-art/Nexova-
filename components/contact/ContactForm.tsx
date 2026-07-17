@@ -206,11 +206,11 @@ export default function ContactForm({ locale, initialMessage = '' }: Props) {
           <button
             type="submit"
             disabled={state === 'loading'}
-            className="inline-flex items-center justify-center gap-2 w-full px-8 py-4 rounded-[10px] bg-terracotta text-white font-semibold text-[15px]
-              hover:bg-terracotta/90 hover:-translate-y-[2px] hover:shadow-lg
-              active:translate-y-0 active:scale-[0.99]
+            className="inline-flex items-center justify-center gap-2 w-full px-8 py-4 rounded-[10px] bg-accent text-white font-semibold text-[15px]
+              hover:bg-accent-ink hover:-translate-y-[2px] hover:shadow-lg
+              active:translate-y-0 active:scale-[0.97]
               disabled:opacity-60 disabled:cursor-not-allowed
-              transition-all duration-200 shadow-sm"
+              transition-all duration-150 shadow-sm"
           >
             {state === 'loading' ? (
               <>

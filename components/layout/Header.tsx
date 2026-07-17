@@ -71,7 +71,7 @@ export default function Header({ locale }: HeaderProps) {
 
             <Link
               href="/kontakt"
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-[8px] bg-terracotta text-white text-label font-medium hover:bg-terracotta/90 active:bg-terracotta transition-colors duration-200 cursor-pointer"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-[8px] bg-accent text-white text-label font-medium hover:bg-accent-ink active:scale-[0.97] transition-all duration-150 cursor-pointer"
             >
               {tCta('quote')}
             </Link>
