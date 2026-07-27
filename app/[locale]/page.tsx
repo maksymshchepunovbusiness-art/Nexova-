@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import HeroSection           from '@/components/home/HeroSection';
-import HomeCursorEffect      from '@/components/home/home-cursor-effect';
 import TrustStrip        from '@/components/home/TrustStrip';
 import ProblemSection    from '@/components/home/ProblemSection';
 import ComparisonTable   from '@/components/home/ComparisonTable';
@@ -19,7 +18,6 @@ export default function HomePage() {
 
   return (
     <>
-      <HomeCursorEffect />
       <HeroSection
         headline={t('hero.h1')}
         h1Accents={t('hero.h1Accents')}
