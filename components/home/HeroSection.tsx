@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Link } from '@/i18n/navigation';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import AutoProDevice from '@/components/ui/auto-pro-device';
 
 interface HeroSectionProps {
@@ -88,7 +89,11 @@ export default function HeroSection({
               {ctaPrimary}
             </Link>
             <Link
-              href="/uslugi"
+              href="/#oferta"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('oferta');
+              }}
               className="inline-flex items-center gap-1.5 px-2 py-3.5 text-ink-soft hover:text-accent font-medium text-[15px] transition-all duration-150"
             >
               {ctaSecondary}

@@ -6,7 +6,7 @@ export default function AboutSection() {
   const tCta = useTranslations('cta');
 
   return (
-    <section className="py-28" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section id="o-nas" className="py-28" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

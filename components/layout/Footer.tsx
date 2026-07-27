@@ -1,5 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface FooterProps {
@@ -9,14 +12,22 @@ interface FooterProps {
 export default function Footer({ locale: _locale }: FooterProps) {
   const t = useTranslations('nav');
   const tFooter = useTranslations('footer');
+  const pathname = usePathname();
 
+  // Homepage sections, not standalone routes — see Header.tsx for the same pattern.
   const navLinks = [
-    { href: '/uslugi', label: t('services') },
-    { href: '/jak-pracuje', label: t('process') },
-    { href: '/realizacje', label: t('portfolio') },
-    { href: '/o-nas', label: t('about') },
+    { href: '/#oferta', label: t('services'), sectionId: 'oferta' },
+    { href: '/#proces', label: t('process'), sectionId: 'proces' },
+    { href: '/#realizacje', label: t('portfolio'), sectionId: 'realizacje' },
+    { href: '/#o-nas', label: t('about'), sectionId: 'o-nas' },
     { href: '/kontakt', label: t('contact') },
   ];
+
+  const handleNavClick = (e: React.MouseEvent, sectionId?: string) => {
+    if (!sectionId || pathname !== '/') return;
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   const year = new Date().getFullYear();
 
@@ -41,10 +52,11 @@ export default function Footer({ locale: _locale }: FooterProps) {
           <div>
             <p className="text-label font-semibold text-ink mb-3">{tFooter('menu')}</p>
             <ul className="flex flex-col gap-2">
-              {navLinks.map(({ href, label }) => (
+              {navLinks.map(({ href, label, sectionId }) => (
                 <li key={href}>
                   <Link
                     href={href}
+                    onClick={(e) => handleNavClick(e, sectionId)}
                     className="text-label text-text-muted hover:text-ink transition-colors duration-200"
                   >
                     {label}

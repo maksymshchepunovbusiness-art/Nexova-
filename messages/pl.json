@@ -286,5 +286,23 @@
       "trust4":   "Bez ukrytych kosztów",
       "trust5":   "Gwarancja naprawy błędów"
     }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Polityka prywatności – Nexova",
+      "description": "Jakie dane zbieramy przez formularz kontaktowy i jak je wykorzystujemy."
+    },
+    "h1": "Polityka prywatności",
+    "updated": "Ostatnia aktualizacja: 27 lipca 2026",
+    "intro": "Ta strona wyjaśnia, jakie dane zbiera Nexova i w jakim celu. Nie jest to porada prawna — to prosty, zgodny z prawdą opis tego, co faktycznie robi ten serwis.",
+    "sections": [
+      { "title": "Administrator danych", "body": "Administratorem danych jest Nexova. W sprawach dotyczących Twoich danych możesz napisać na kontakt.nexova.agency@gmail.com." },
+      { "title": "Jakie dane zbieramy", "body": "Wyłącznie dane, które sam podajesz w formularzu kontaktowym: imię, adres e-mail, opcjonalnie numer telefonu, treść wiadomości oraz wybrany język strony. Dodatkowo, wyłącznie w celu ochrony przed nadużyciami (np. spamem), tymczasowo przetwarzamy adres IP przy wysyłce formularza." },
+      { "title": "W jakim celu przetwarzamy dane", "body": "Wyłącznie po to, by odpowiedzieć na Twoje zapytanie. Wiadomość z formularza trafia bezpośrednio do prywatnego czatu na Telegramie — nie tworzymy bazy danych klientów ani nie wykorzystujemy Twoich danych do celów marketingowych." },
+      { "title": "Pliki cookie i śledzenie", "body": "Ta strona nie używa plików cookie, narzędzi analitycznych (np. Google Analytics) ani żadnych skryptów śledzących odwiedzających." },
+      { "title": "Jak długo przechowujemy dane", "body": "Wiadomości z formularza pozostają w historii czatu na Telegramie do momentu ich usunięcia. Adres IP wykorzystywany do ograniczania nadużyć nie jest przechowywany trwale." },
+      { "title": "Twoje prawa", "body": "Masz prawo do wglądu, poprawienia lub usunięcia swoich danych. Napisz na kontakt.nexova.agency@gmail.com, a odpowiemy w ciągu 48 godzin." },
+      { "title": "Zmiany w polityce", "body": "Jeśli ta polityka się zmieni, zaktualizujemy datę na górze tej strony." }
+    ]
   }
 }

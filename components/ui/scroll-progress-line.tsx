@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { scrollToSection } from '@/lib/scroll-to-section';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,17 +107,6 @@ export function ScrollProgressLine({ locale }: Props) {
       cancelAnimationFrame(rafRef.current);
     };
   }, [measure, onScroll]);
-
-  const scrollToSection = useCallback((id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const lenis = (window as any).__lenis;
-    if (lenis?.scrollTo) {
-      lenis.scrollTo(el, { offset: -80, duration: 1.2 });
-    } else {
-      window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.scrollY - 80), behavior: 'smooth' });
-    }
-  }, []);
 
   const getLabel = (id: SectionId) => LABELS[id][locale] ?? LABELS[id].pl;
 

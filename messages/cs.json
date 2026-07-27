@@ -242,5 +242,23 @@
       "trust4":   "Bez skrytých nákladů",
       "trust5":   "Záruka opravy chyb"
     }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Zásady ochrany osobních údajů – Nexova",
+      "description": "Jaké údaje sbíráme prostřednictvím kontaktního formuláře a jak je používáme."
+    },
+    "h1": "Zásady ochrany osobních údajů",
+    "updated": "Poslední aktualizace: 27. července 2026",
+    "intro": "Tato stránka vysvětluje, jaké údaje Nexova shromažďuje a proč. Nejedná se o právní poradenství — jde o jednoduchý a pravdivý popis toho, co tento web skutečně dělá.",
+    "sections": [
+      { "title": "Správce údajů", "body": "Správcem údajů je Nexova. Ve věcech týkajících se vašich údajů nás kontaktujte na kontakt.nexova.agency@gmail.com." },
+      { "title": "Jaké údaje shromažďujeme", "body": "Pouze údaje, které sami zadáte v kontaktním formuláři: jméno, e-mailovou adresu, volitelně telefonní číslo, text zprávy a zvolený jazyk stránky. Kvůli ochraně před zneužitím (např. spamem) navíc krátce zpracováváme vaši IP adresu při odeslání formuláře." },
+      { "title": "Za jakým účelem údaje zpracováváme", "body": "Výhradně proto, abychom odpověděli na váš dotaz. Zpráva z formuláře jde přímo do soukromého chatu na Telegramu — nevytváříme databázi klientů ani vaše údaje nepoužíváme pro marketing." },
+      { "title": "Soubory cookie a sledování", "body": "Tento web nepoužívá soubory cookie, analytické nástroje (např. Google Analytics) ani žádné skripty sledující návštěvníky." },
+      { "title": "Jak dlouho údaje uchováváme", "body": "Zprávy z formuláře zůstávají v historii chatu na Telegramu, dokud je neodstraníme. IP adresa použitá k omezení zneužití se trvale neukládá." },
+      { "title": "Vaše práva", "body": "Máte právo na přístup ke svým údajům, jejich opravu nebo výmaz. Napište na kontakt.nexova.agency@gmail.com a odpovíme do 48 hodin." },
+      { "title": "Změny těchto zásad", "body": "Pokud se tyto zásady změní, aktualizujeme datum v horní části této stránky." }
+    ]
   }
 }

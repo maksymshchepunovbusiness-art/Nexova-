@@ -1,7 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
 
@@ -12,14 +13,24 @@ interface HeaderProps {
 export default function Header({ locale }: HeaderProps) {
   const t = useTranslations('nav');
   const tCta = useTranslations('cta');
+  const pathname = usePathname();
 
+  // These are homepage sections, not standalone routes — anchor-scroll on the
+  // homepage, or navigate to `/#id` and let the hash handler in
+  // SmoothScrollProvider correct for the sticky header once landed.
   const navLinks = [
-    { href: '/uslugi', label: t('services') },
-    { href: '/jak-pracuje', label: t('process') },
-    { href: '/realizacje', label: t('portfolio') },
-    { href: '/o-nas', label: t('about') },
+    { href: '/#oferta', label: t('services'), sectionId: 'oferta' },
+    { href: '/#proces', label: t('process'), sectionId: 'proces' },
+    { href: '/#realizacje', label: t('portfolio'), sectionId: 'realizacje' },
+    { href: '/#o-nas', label: t('about'), sectionId: 'o-nas' },
     { href: '/kontakt', label: t('contact') },
   ];
+
+  const handleNavClick = (e: React.MouseEvent, sectionId?: string) => {
+    if (!sectionId || pathname !== '/') return;
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   return (
     <motion.header
@@ -52,10 +63,11 @@ export default function Header({ locale }: HeaderProps) {
             className="hidden lg:flex items-center gap-6"
             aria-label="Główna nawigacja"
           >
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, label, sectionId }) => (
               <Link
                 key={href}
                 href={href}
+                onClick={(e) => handleNavClick(e, sectionId)}
                 className="text-label text-text-muted hover:text-ink transition-colors duration-200"
               >
                 {label}

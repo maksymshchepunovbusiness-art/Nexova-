@@ -241,5 +241,23 @@
       "trust4":   "No hidden costs",
       "trust5":   "Bug-fix guarantee"
     }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Privacy Policy – Nexova",
+      "description": "What data we collect through the contact form and how we use it."
+    },
+    "h1": "Privacy Policy",
+    "updated": "Last updated: July 27, 2026",
+    "intro": "This page explains what data Nexova collects and why. It isn't legal advice — it's a plain, accurate description of what this site actually does.",
+    "sections": [
+      { "title": "Data controller", "body": "Nexova is the data controller. For anything related to your data, email kontakt.nexova.agency@gmail.com." },
+      { "title": "What data we collect", "body": "Only what you provide through the contact form: your name, email address, an optional phone number, your message, and the site language you're using. To protect against abuse (e.g. spam), we also briefly process your IP address when you submit the form." },
+      { "title": "Why we process it", "body": "Solely to respond to your inquiry. Messages from the form go directly to a private Telegram chat — we don't build a customer database or use your data for marketing." },
+      { "title": "Cookies and tracking", "body": "This site does not use cookies, analytics tools (e.g. Google Analytics), or any visitor-tracking scripts." },
+      { "title": "How long we keep data", "body": "Form messages remain in the Telegram chat history until deleted. The IP address used for abuse prevention is not stored permanently." },
+      { "title": "Your rights", "body": "You can request access to, correction of, or deletion of your data at any time. Email kontakt.nexova.agency@gmail.com and we'll respond within 48 hours." },
+      { "title": "Changes to this policy", "body": "If this policy changes, we'll update the date at the top of this page." }
+    ]
   }
 }

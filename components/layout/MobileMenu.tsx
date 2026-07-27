@@ -1,16 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface MobileMenuProps {
-  navLinks: Array<{ href: string; label: string }>;
+  navLinks: Array<{ href: string; label: string; sectionId?: string }>;
   quoteLabel: string;
 }
 
 export default function MobileMenu({ navLinks, quoteLabel }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   // Close on route change / Escape
   useEffect(() => {
@@ -67,11 +69,17 @@ export default function MobileMenu({ navLinks, quoteLabel }: MobileMenuProps) {
 
           {/* Nav links */}
           <nav className="flex flex-col px-4 py-6 gap-1" aria-label="Menu mobilne">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, label, sectionId }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  setOpen(false);
+                  if (sectionId && pathname === '/') {
+                    e.preventDefault();
+                    scrollToSection(sectionId);
+                  }
+                }}
                 className="py-3 text-h3 text-ink border-b border-border last:border-0 hover:text-indigo transition-colors duration-200"
               >
                 {label}

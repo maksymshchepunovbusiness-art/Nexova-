@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import HashScrollOnMount     from '@/components/home/hash-scroll-on-mount';
 import HeroSection           from '@/components/home/HeroSection';
 import TrustStrip        from '@/components/home/TrustStrip';
 import ProblemSection    from '@/components/home/ProblemSection';
@@ -18,6 +19,7 @@ export default function HomePage() {
 
   return (
     <>
+      <HashScrollOnMount />
       <HeroSection
         headline={t('hero.h1')}
         h1Accents={t('hero.h1Accents')}
