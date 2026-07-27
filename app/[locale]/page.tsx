@@ -7,6 +7,7 @@ import ComparisonTable   from '@/components/home/ComparisonTable';
 import ServicesSection   from '@/components/home/ServicesSection';
 import QuoteCalculator   from '@/components/home/QuoteCalculator';
 import ProcessSection    from '@/components/home/ProcessSection';
+import DiveBridgeSection from '@/components/home/DiveBridgeSection';
 import PortfolioSection  from '@/components/home/PortfolioSection';
 import AboutSection      from '@/components/home/AboutSection';
 import GuaranteeSection  from '@/components/home/GuaranteeSection';
@@ -33,6 +34,7 @@ export default function HomePage() {
       <ServicesSection />
       <QuoteCalculator />
       <ProcessSection />
+      <DiveBridgeSection />
       <PortfolioSection />
       <AboutSection />
       <GuaranteeSection />

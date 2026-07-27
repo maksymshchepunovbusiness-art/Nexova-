@@ -96,7 +96,10 @@
     },
     "portfolio": {
       "h2": "Reference",
-      "empty": "Váš projekt může být tu první."
+      "empty": "Váš projekt může být tu první.",
+      "dive": {
+        "eyebrow": "Podívejte se zblízka"
+      }
     },
     "about": {
       "h2": "Za Nexova stojí jeden člověk – a s ním komunikujete.",

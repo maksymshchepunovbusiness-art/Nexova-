@@ -37,7 +37,7 @@ function Chrome() {
   );
 }
 
-function PageContent() {
+export function PageContent() {
   return (
     <div style={{ background: '#fff', fontSize: 12, lineHeight: 1.5 }}>
       {/* Nav */}

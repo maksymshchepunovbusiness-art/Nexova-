@@ -82,6 +82,8 @@
   .autopro-scroll,
   .demo-frame-content,
   .nexova-fade-in { animation: none; }
+
+  .dive-ink-streaks { display: none !important; }
 }
 
 /* ── No aurora/glow in the new design — page-glow is inert ───────────────── */

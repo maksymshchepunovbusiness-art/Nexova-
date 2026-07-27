@@ -140,7 +140,10 @@
     },
     "portfolio": {
       "h2": "Realizacje",
-      "empty": "Twój projekt może być tu pierwszy."
+      "empty": "Twój projekt może być tu pierwszy.",
+      "dive": {
+        "eyebrow": "Zobacz z bliska"
+      }
     },
     "about": {
       "h2": "Za Nexova stoi jedna osoba. To z nią rozmawiasz.",

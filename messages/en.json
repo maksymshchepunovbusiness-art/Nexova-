@@ -95,7 +95,10 @@
     },
     "portfolio": {
       "h2": "Portfolio",
-      "empty": "Your project could be first here."
+      "empty": "Your project could be first here.",
+      "dive": {
+        "eyebrow": "See it up close"
+      }
     },
     "about": {
       "h2": "Nexova is one person – and you talk directly to them.",
